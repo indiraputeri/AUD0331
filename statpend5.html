@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="statpend5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="statpend5_files/libs/quarto-html/tabby.min.js"></script>
+<script src="statpend5_files/libs/quarto-html/popper.min.js"></script>
+<script src="statpend5_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="statpend5_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="statpend5_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="statpend5_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="Dr.&nbsp;Indira Puteri Kinasih">
+  <title>Z-score, Korelasi, dan Regresi</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="statpend5_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="statpend5_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="statpend5_files/libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="statpend5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="statpend5_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="statpend5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="statpend5_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Z-score, Korelasi, dan Regresi</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Dr.&nbsp;Indira Puteri Kinasih
+</div>
+</div>
+</div>
+
+</section>
+<section id="tujuan-pembelajaran" class="slide level2">
+<h2>Tujuan Pembelajaran</h2>
+<p>Setelah mengikuti pembelajaran, mahasiswa mampu:</p>
+<ul>
+<li>menjelaskan makna <strong>z-score</strong> dan menghitungnya;</li>
+<li>menginterpretasikan posisi relatif suatu nilai;</li>
+<li>membaca hubungan antara dua variabel melalui <strong>crosstab</strong> dan <strong>scatterplot</strong>;</li>
+<li>menjelaskan makna <strong>korelasi Pearson</strong>;</li>
+<li>memahami ide dasar <strong>regresi linear</strong>;</li>
+<li>menginterpretasikan persamaan garis regresi;</li>
+<li>menjelaskan kualitas model regresi secara sederhana;</li>
+<li>memahami bahwa <strong>korelasi tidak selalu berarti sebab-akibat</strong>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="bagian-1" class="title-slide slide level1 center">
+<h1>Bagian 1</h1>
+
+</section>
+<section id="z-score" class="slide level2">
+<h2>Z-score</h2>
+<h3 id="mengapa-kita-membutuhkan-z-score">Mengapa kita membutuhkan z-score?</h3>
+<p>Kita sudah mempelajari:</p>
+<ul>
+<li>ukuran pemusatan → <em>di mana pusat data?</em></li>
+<li>ukuran penyebaran → <em>seberapa bervariasi data?</em></li>
+</ul>
+<p>Pertanyaan berikutnya:</p>
+<blockquote>
+<p><strong>Bagaimana mengetahui posisi suatu nilai dibandingkan dengan kelompoknya?</strong></p>
+</blockquote>
+<p>Contoh:</p>
+<ul>
+<li>Anak A mendapat skor 80.</li>
+<li>Anak B mendapat skor 80.</li>
+</ul>
+<p>Apakah posisi kedua anak tersebut sama?</p>
+<p><strong>Belum tentu.</strong></p>
+<p>Jika mereka berasal dari kelompok dengan rata-rata dan penyebaran yang berbeda, maka posisi relatif mereka juga dapat berbeda.</p>
+</section>
+<section id="konsep-z-score" class="slide level2">
+<h2>Konsep Z-score</h2>
+<p>Z-score menunjukkan:</p>
+<blockquote>
+<p><strong>berapa standar deviasi suatu nilai berada di atas atau di bawah rata-rata.</strong></p>
+</blockquote>
+<p>Untuk populasi:</p>
+<p><span class="math display">\[
+z=\frac{x-\mu}{\sigma}
+\]</span></p>
+<p>Untuk data sampel:</p>
+<p><span class="math display">\[
+z=\frac{x-\bar{x}}{s}
+\]</span></p>
+<p>Keterangan:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Simbol</th>
+<th>Makna</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x\)</span></td>
+<td>nilai yang diamati</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bar{x}\)</span></td>
+<td>rata-rata</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(s\)</span></td>
+<td>standar deviasi</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(z\)</span></td>
+<td>skor baku</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cara-membaca-z-score" class="slide level2">
+<h2>Cara Membaca Z-score</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Z-score</th>
+<th>Interpretasi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(z=0\)</span></td>
+<td>tepat pada rata-rata</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(z&gt;0\)</span></td>
+<td>di atas rata-rata</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(z&lt;0\)</span></td>
+<td>di bawah rata-rata</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(z=1\)</span></td>
+<td>1 SD di atas rata-rata</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(z=-1\)</span></td>
+<td>1 SD di bawah rata-rata</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(z=2\)</span></td>
+<td>2 SD di atas rata-rata</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(z=-2\)</span></td>
+<td>2 SD di bawah rata-rata</td>
+</tr>
+</tbody>
+</table>
+<p>Yang penting bukan hanya menghitung.</p>
+<blockquote>
+<p><strong>Z-score harus dibaca dalam konteks data.</strong></p>
+</blockquote>
+</section>
+<section id="contoh-skor-kemampuan-bahasa" class="slide level2">
+<h2>Contoh: Skor Kemampuan Bahasa</h2>
+<p>Misalkan skor kemampuan bahasa anak:</p>
+<p><span class="math display">\[
+\bar{x}=70,\qquad s=10
+\]</span></p>
+<p>Seorang anak memperoleh skor:</p>
+<p><span class="math display">\[
+x=85
+\]</span></p>
+<p>Maka:</p>
+<p><span class="math display">\[
+z=\frac{85-70}{10}=1.5
+\]</span></p>
+<h3 id="interpretasi">Interpretasi</h3>
+<p>Skor anak tersebut berada:</p>
+<blockquote>
+<p><strong>1,5 standar deviasi di atas rata-rata kelompok.</strong></p>
+</blockquote>
+<p>Bukan berarti anak tersebut memperoleh “nilai 1,5”.</p>
+</section>
+<section id="contoh-kedua" class="slide level2">
+<h2>Contoh Kedua</h2>
+<p>Rata-rata skor adalah 70 dan standar deviasi 10.</p>
+<p>Seorang anak memperoleh skor 55.</p>
+<p><span class="math display">\[
+z=\frac{55-70}{10}=-1.5
+\]</span></p>
+<p>Artinya:</p>
+<blockquote>
+<p>Skor anak tersebut berada <strong>1,5 standar deviasi di bawah rata-rata kelompok</strong>.</p>
+</blockquote>
+<p>Perhatikan tanda negatif.</p>
+<p><strong>Negatif tidak berarti “nilai buruk”.</strong></p>
+<p>Tanda negatif hanya menunjukkan posisi <strong>di bawah rata-rata</strong>.</p>
+</section>
+<section id="membandingkan-dua-anak" class="slide level2">
+<h2>Membandingkan Dua Anak</h2>
+<p>Dua anak memperoleh skor:</p>
+<ul>
+<li>Anak A = 80</li>
+<li>Anak B = 75</li>
+</ul>
+<p>Misalkan:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Rata-rata</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Skor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anak A</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td>Anak B</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">75</td>
+</tr>
+</tbody>
+</table>
+<p>Z-score:</p>
+<p><span class="math display">\[
+z_A=\frac{80-70}{10}=1
+\]</span></p>
+<p><span class="math display">\[
+z_B=\frac{75-60}{5}=3
+\]</span></p>
+<h3 id="pertanyaan">Pertanyaan</h3>
+<p>Siapa yang memiliki posisi relatif lebih tinggi?</p>
+<p><strong>Anak B.</strong></p>
+<p>Meskipun skor mentah Anak A lebih tinggi, posisi relatif Anak B jauh lebih tinggi dibandingkan kelompoknya.</p>
+</section>
+<section id="z-score-sebagai-skor-baku" class="slide level2">
+<h2>Z-score sebagai Skor Baku</h2>
+<p>Z-score memungkinkan kita:</p>
+<ul>
+<li>membandingkan nilai dari kelompok yang berbeda;</li>
+<li>melihat posisi relatif seseorang;</li>
+<li>mengidentifikasi nilai yang relatif jauh dari rata-rata;</li>
+<li>mengubah skala yang berbeda menjadi skala yang sama.</li>
+</ul>
+<h3 id="ide-utama">Ide utama</h3>
+<blockquote>
+<p><strong>Skor mentah memberi tahu “berapa nilainya”.</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Z-score memberi tahu “di mana posisinya dalam kelompok”.</strong></p>
+</blockquote>
+</section>
+<section id="latihan-singkat" class="slide level2">
+<h2>Latihan Singkat</h2>
+<p>Suatu kelas memiliki:</p>
+<p><span class="math display">\[
+\bar{x}=75,\qquad s=8
+\]</span></p>
+<p>Tiga anak memperoleh skor:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Anak</th>
+<th style="text-align: right;">Skor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">83</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td style="text-align: right;">59</td>
+</tr>
+</tbody>
+</table>
+<p>Hitung z-score masing-masing.</p>
+<p>Kemudian jelaskan:</p>
+<ol type="1">
+<li>siapa yang berada pada rata-rata?</li>
+<li>siapa yang paling jauh dari rata-rata?</li>
+<li>apa arti tanda positif dan negatif?</li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-2" class="title-slide slide level1 center">
+<h1>Bagian 2</h1>
+
+</section>
+<section id="melihat-hubungan-dua-variabel" class="slide level2">
+<h2>Melihat Hubungan Dua Variabel</h2>
+<p>Selama ini kita banyak membahas <strong>satu variabel</strong>.</p>
+<p>Contoh:</p>
+<ul>
+<li>skor kemampuan bahasa;</li>
+<li>tinggi badan;</li>
+<li>waktu belajar;</li>
+<li>kehadiran.</li>
+</ul>
+<p>Sekarang kita mulai melihat <strong>dua variabel secara bersamaan</strong>.</p>
+<p>Contoh pertanyaan:</p>
+<blockquote>
+<p>Apakah anak yang lebih sering hadir cenderung memperoleh skor yang lebih tinggi?</p>
+</blockquote>
+<p>atau</p>
+<blockquote>
+<p>Apakah waktu belajar berkaitan dengan skor perkembangan anak?</p>
+</blockquote>
+</section>
+<section id="dua-variabel-kategorik" class="slide level2">
+<h2>Dua Variabel Kategorik</h2>
+<p>Jika kedua variabel berbentuk kategori, kita dapat menggunakan:</p>
+<h3 id="crosstab-tabel-kontingensi"><strong>Crosstab / Tabel Kontingensi</strong></h3>
+<p>Contoh:</p>
+<ul>
+<li>Aktivitas belajar: tinggi / rendah</li>
+<li>Capaian: mencapai / belum mencapai</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Aktivitas</th>
+<th style="text-align: right;">Mencapai</th>
+<th style="text-align: right;">Belum</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tinggi</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="even">
+<td>Rendah</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>36</strong></td>
+<td style="text-align: right;"><strong>24</strong></td>
+<td style="text-align: right;"><strong>60</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bagaimana-membacanya" class="slide level2">
+<h2>Bagaimana Membacanya?</h2>
+<p>Dari tabel:</p>
+<ul>
+<li>24 dari 30 anak dengan aktivitas tinggi mencapai target;</li>
+<li>12 dari 30 anak dengan aktivitas rendah mencapai target.</li>
+</ul>
+<p>Secara proporsi:</p>
+<p><span class="math display">\[
+\frac{24}{30}=80\%
+\]</span></p>
+<p>sedangkan:</p>
+<p><span class="math display">\[
+\frac{12}{30}=40\%
+\]</span></p>
+<h3 id="pertanyaan-1">Pertanyaan</h3>
+<p>Apakah terdapat pola hubungan antara aktivitas belajar dan pencapaian?</p>
+<p><strong>Ya, terlihat adanya perbedaan proporsi.</strong></p>
+<p>Tetapi…</p>
+<blockquote>
+<p>Apakah aktivitas belajar <strong>menyebabkan</strong> pencapaian?</p>
+</blockquote>
+<p><strong>Belum dapat disimpulkan.</strong></p>
+</section>
+<section id="dua-variabel-numerik" class="slide level2">
+<h2>Dua Variabel Numerik</h2>
+<p>Jika kedua variabel berupa angka, kita dapat menggunakan:</p>
+<h3 id="scatterplot"><strong>Scatterplot</strong></h3>
+<p>Misalnya:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> = waktu belajar</li>
+<li><span class="math inline">\(y\)</span> = skor perkembangan</li>
+</ul>
+
+<img data-src="statpend5_files/figure-revealjs/unnamed-chunk-1-1.png" width="768" class="r-stretch"></section>
+<section id="apa-yang-kita-cari-dari-scatterplot" class="slide level2">
+<h2>Apa yang Kita Cari dari Scatterplot?</h2>
+<p>Perhatikan:</p>
+<ul>
+<li>arah hubungan;</li>
+<li>kekuatan pola;</li>
+<li>bentuk hubungan;</li>
+<li>pencilan (<em>outlier</em>);</li>
+<li>apakah hubungan tampak linear.</li>
+</ul>
+<h3 id="tiga-kemungkinan-sederhana">Tiga kemungkinan sederhana</h3>
+<p><strong>Positif</strong></p>
+<blockquote>
+<p>semakin besar X, Y cenderung meningkat.</p>
+</blockquote>
+<p><strong>Negatif</strong></p>
+<blockquote>
+<p>semakin besar X, Y cenderung menurun.</p>
+</blockquote>
+<p><strong>Tidak jelas</strong></p>
+<blockquote>
+<p>tidak tampak pola hubungan yang konsisten.</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-3" class="title-slide slide level1 center">
+<h1>Bagian 3</h1>
+
+</section>
+<section id="korelasi-pearson" class="slide level2">
+<h2>Korelasi Pearson</h2>
+<p>Scatterplot membantu kita <strong>melihat</strong> hubungan.</p>
+<p>Korelasi Pearson membantu kita <strong>mengukur kekuatan dan arah hubungan linear</strong>.</p>
+<p>Koefisien korelasi Pearson dilambangkan:</p>
+<p><span class="math display">\[
+r
+\]</span></p>
+<p>Nilainya berada pada:</p>
+<p><span class="math display">\[
+-1\leq r\leq1
+\]</span></p>
+</section>
+<section id="cara-membaca-r" class="slide level2">
+<h2>Cara Membaca <span class="math inline">\(r\)</span></h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Nilai <span class="math inline">\(r\)</span></th>
+<th>Arah hubungan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">mendekati +1</td>
+<td>positif kuat</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">mendekati 0</td>
+<td>hubungan linear lemah/tidak ada</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">mendekati −1</td>
+<td>negatif kuat</td>
+</tr>
+</tbody>
+</table>
+<p>Contoh:</p>
+<p><span class="math display">\[
+r=0.82
+\]</span></p>
+<p>→ hubungan linear positif yang kuat.</p>
+<p><span class="math display">\[
+r=-0.75
+\]</span></p>
+<p>→ hubungan linear negatif yang kuat.</p>
+<p><span class="math display">\[
+r=0.08
+\]</span></p>
+<p>→ hampir tidak ada hubungan linear.</p>
+</section>
+<section id="korelasi-bukan-sekadar-angka" class="slide level2">
+<h2>Korelasi Bukan Sekadar Angka</h2>
+<p>Misalkan diperoleh:</p>
+<p><span class="math display">\[
+r=0.70
+\]</span></p>
+<p>Interpretasi yang tepat:</p>
+<blockquote>
+<p>Terdapat hubungan linear positif yang cukup kuat antara kedua variabel.</p>
+</blockquote>
+<p>Interpretasi yang <strong>tidak tepat</strong>:</p>
+<blockquote>
+<p>Anak yang belajar lebih lama pasti memiliki kemampuan lebih tinggi.</p>
+</blockquote>
+<p>Mengapa?</p>
+<p>Karena korelasi:</p>
+<ul>
+<li>tidak menunjukkan sebab-akibat;</li>
+<li>tidak menjelaskan variabel lain;</li>
+<li>hanya mengukur hubungan linear.</li>
+</ul>
+</section>
+<section id="aktivitas-tebak-korelasi" class="slide level2">
+<h2>Aktivitas: Tebak Korelasi</h2>
+<p>Perhatikan tiga situasi berikut.</p>
+<h3 id="a">A</h3>
+<p>Anak dengan waktu belajar lebih tinggi cenderung memiliki skor lebih tinggi.</p>
+<h3 id="b">B</h3>
+<p>Anak dengan waktu belajar lebih tinggi cenderung memiliki skor lebih rendah.</p>
+<h3 id="c">C</h3>
+<p>Tidak terlihat pola yang jelas.</p>
+<p>Prediksikan:</p>
+<p><span class="math display">\[
+r_A \quad r_B \quad r_C
+\]</span></p>
+<p>Apakah masing-masing:</p>
+<ul>
+<li>positif?</li>
+<li>negatif?</li>
+<li>mendekati nol?</li>
+</ul>
+</section>
+<section id="pearsons-r-dengan-r" class="slide level2">
+<h2>Pearson’s <span class="math inline">\(r\)</span> dengan R</h2>
+<p>Misalkan data:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   StudyTime Score
+1          2    55
+2          3    58
+3          3    61
+4          4    62
+5          4    67
+6          5    65
+7          5    70
+8          6    73
+9          6    72
+10         7    78
+11         7    80
+12         8    82
+13         9    86</code></pre>
+</div>
+</div>
+<p>Korelasi dapat dihitung dengan:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9822112</code></pre>
+</div>
+</div>
+<p>Atau:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  study$StudyTime and study$Score
+t = 17.348, df = 11, p-value = 2.444e-09
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.9398665 0.9948173
+sample estimates:
+      cor 
+0.9822112 </code></pre>
+</div>
+</div>
+<p>Untuk saat ini, fokus pada:</p>
+<blockquote>
+<p><strong>arah dan kekuatan hubungan.</strong></p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-4" class="title-slide slide level1 center">
+<h1>Bagian 4</h1>
+
+</section>
+<section id="regresi-linear" class="slide level2">
+<h2>Regresi Linear</h2>
+<p>Korelasi menjawab:</p>
+<blockquote>
+<p><strong>“Seberapa kuat hubungan X dan Y?”</strong></p>
+</blockquote>
+<p>Regresi memberikan pertanyaan tambahan:</p>
+<blockquote>
+<p><strong>“Bagaimana kita dapat menggunakan X untuk memperkirakan Y?”</strong></p>
+</blockquote>
+<p>Misalnya:</p>
+<blockquote>
+<p>Apakah skor perkembangan dapat diperkirakan berdasarkan waktu belajar?</p>
+</blockquote>
+</section>
+<section id="mencari-garis-regresi" class="slide level2">
+<h2>Mencari Garis Regresi</h2>
+<p>Bentuk sederhana garis regresi:</p>
+<p><span class="math display">\[
+\hat{y}=b_0+b_1x
+\]</span></p>
+<p>Keterangan:</p>
+<ul>
+<li><span class="math inline">\(\hat{y}\)</span> = nilai Y yang diprediksi;</li>
+<li><span class="math inline">\(b_0\)</span> = intercept;</li>
+<li><span class="math inline">\(b_1\)</span> = slope;</li>
+<li><span class="math inline">\(x\)</span> = variabel prediktor.</li>
+</ul>
+</section>
+<section id="apa-arti-slope" class="slide level2">
+<h2>Apa Arti Slope?</h2>
+<p>Misalkan diperoleh:</p>
+<p><span class="math display">\[
+\hat{y}=48+4x
+\]</span></p>
+<p>Artinya:</p>
+<blockquote>
+<p>setiap peningkatan <strong>1 jam waktu belajar</strong> berkaitan dengan peningkatan prediksi skor sebesar <strong>4 poin</strong>.</p>
+</blockquote>
+<p>Perhatikan kata:</p>
+<h3 id="prediksi"><strong>“prediksi”</strong></h3>
+<p>bukan:</p>
+<h3 id="pasti-meningkat-4-poin"><strong>“pasti meningkat 4 poin”</strong></h3>
+</section>
+<section id="apa-arti-intercept" class="slide level2">
+<h2>Apa Arti Intercept?</h2>
+<p>Pada:</p>
+<p><span class="math display">\[
+\hat{y}=48+4x
+\]</span></p>
+<p>nilai intercept adalah:</p>
+<p><span class="math display">\[
+b_0=48
+\]</span></p>
+<p>Secara matematis, ketika:</p>
+<p><span class="math display">\[
+x=0
+\]</span></p>
+<p>maka:</p>
+<p><span class="math display">\[
+\hat{y}=48
+\]</span></p>
+<p>Tetapi interpretasi substantif harus hati-hati.</p>
+<blockquote>
+<p>Apakah waktu belajar 0 jam merupakan kondisi yang masuk akal?</p>
+</blockquote>
+<p>Jika tidak, intercept mungkin hanya diperlukan untuk membentuk garis regresi.</p>
+</section>
+<section id="menentukan-prediksi" class="slide level2">
+<h2>Menentukan Prediksi</h2>
+<p>Misalkan:</p>
+<p><span class="math display">\[
+\hat{y}=48+4x
+\]</span></p>
+<p>Jika seorang anak belajar 5 jam:</p>
+<p><span class="math display">\[
+\hat{y}=48+4(5)
+\]</span></p>
+<p><span class="math display">\[
+\hat{y}=68
+\]</span></p>
+<p>Jadi skor yang diprediksi adalah:</p>
+<p><strong>68</strong></p>
+</section>
+<section id="garis-regresi-pada-scatterplot" class="slide level2">
+<h2>Garis Regresi pada Scatterplot</h2>
+
+<img data-src="statpend5_files/figure-revealjs/unnamed-chunk-5-1.png" width="768" class="r-stretch"><p>Garis tersebut merupakan garis yang:</p>
+<blockquote>
+<p><strong>meminimalkan jumlah kuadrat selisih antara nilai aktual dan nilai prediksi.</strong></p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-5" class="title-slide slide level1 center">
+<h1>Bagian 5</h1>
+
+</section>
+<section id="seberapa-baik-garis-regresi" class="slide level2">
+<h2>Seberapa Baik Garis Regresi?</h2>
+<p>Tidak semua garis regresi memberikan prediksi yang sama baiknya.</p>
+<p>Pertanyaan berikutnya:</p>
+<blockquote>
+<p><strong>Seberapa baik model menjelaskan variasi pada Y?</strong></p>
+</blockquote>
+<p>Salah satu ukuran yang sering digunakan adalah:</p>
+<p><span class="math display">\[
+R^2
+\]</span></p>
+</section>
+<section id="koefisien-determinasi" class="slide level2">
+<h2>Koefisien Determinasi</h2>
+<p>Misalkan:</p>
+<p><span class="math display">\[
+R^2=0.64
+\]</span></p>
+<p>Interpretasi sederhananya:</p>
+<blockquote>
+<p>Sekitar <strong>64% variasi pada Y dalam data dapat dijelaskan oleh model yang menggunakan X</strong>.</p>
+</blockquote>
+<p>Sedangkan sekitar:</p>
+<p><span class="math display">\[
+100\%-64\%=36\%
+\]</span></p>
+<p>berada di luar penjelasan model tersebut.</p>
+</section>
+<section id="jangan-salah-menafsirkan-r2" class="slide level2">
+<h2>Jangan Salah Menafsirkan <span class="math inline">\(R^2\)</span></h2>
+<p>Jika:</p>
+<p><span class="math display">\[
+R^2=0.64
+\]</span></p>
+<p>bukan berarti:</p>
+<blockquote>
+<p>“X menyebabkan 64% perubahan Y.”</p>
+</blockquote>
+<p>Yang dapat dikatakan:</p>
+<blockquote>
+<p>Model dengan X memiliki kemampuan menjelaskan sekitar 64% variasi Y pada data tersebut.</p>
+</blockquote>
+<p>Masih mungkin terdapat:</p>
+<ul>
+<li>variabel lain;</li>
+<li>kesalahan pengukuran;</li>
+<li>faktor lingkungan;</li>
+<li>karakteristik individu;</li>
+<li>faktor keluarga;</li>
+<li>faktor guru;</li>
+<li>faktor sekolah.</li>
+</ul>
+</section>
+<section id="residual" class="slide level2">
+<h2>Residual</h2>
+<p>Regresi menghasilkan:</p>
+<ul>
+<li>nilai aktual;</li>
+<li>nilai prediksi;</li>
+<li>selisih antara keduanya.</li>
+</ul>
+<p>Selisih tersebut disebut:</p>
+<h3 id="residual-1"><strong>residual</strong></h3>
+<p><span class="math display">\[
+e=y-\hat{y}
+\]</span></p>
+<p>Jika:</p>
+<ul>
+<li>aktual = 75</li>
+<li>prediksi = 70</li>
+</ul>
+<p>maka:</p>
+<p><span class="math display">\[
+e=75-70=5
+\]</span></p>
+<p>Model <strong>underestimate</strong> sebesar 5 poin.</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-6" class="title-slide slide level1 center">
+<h1>Bagian 6</h1>
+
+</section>
+<section id="korelasi-kausalitas" class="slide level2">
+<h2>Korelasi ≠ Kausalitas</h2>
+<p>Ini adalah salah satu prinsip terpenting dalam membaca data pendidikan.</p>
+<p>Misalkan ditemukan:</p>
+<p><span class="math display">\[
+r=0.75
+\]</span></p>
+<p>antara:</p>
+<blockquote>
+<p>waktu menggunakan media pembelajaran digital</p>
+</blockquote>
+<p>dan</p>
+<blockquote>
+<p>skor perkembangan anak.</p>
+</blockquote>
+<p>Apakah kita boleh menyimpulkan:</p>
+<blockquote>
+<p>“Media digital meningkatkan perkembangan anak”?</p>
+</blockquote>
+<p><strong>Belum tentu.</strong></p>
+</section>
+<section id="mengapa" class="slide level2">
+<h2>Mengapa?</h2>
+<p>Mungkin ada variabel ketiga.</p>
+<p>Misalnya:</p>
+<p><strong>kondisi sosial ekonomi keluarga</strong></p>
+<p>dapat berkaitan dengan:</p>
+<ul>
+<li>akses terhadap perangkat digital;</li>
+<li>kualitas lingkungan belajar;</li>
+<li>dukungan orang tua;</li>
+<li>skor perkembangan anak.</li>
+</ul>
+<p>Sehingga hubungan yang kita lihat dapat dipengaruhi oleh faktor lain.</p>
+</section>
+<section id="contoh-lain" class="slide level2">
+<h2>Contoh Lain</h2>
+<p>Misalkan ditemukan:</p>
+<blockquote>
+<p>semakin banyak anak membawa buku ke sekolah, semakin tinggi skor literasinya.</p>
+</blockquote>
+<p>Apakah membawa buku menyebabkan kemampuan literasi meningkat?</p>
+<p>Belum tentu.</p>
+<p>Mungkin anak yang:</p>
+<ul>
+<li>memiliki kebiasaan membaca;</li>
+<li>mendapat dukungan orang tua;</li>
+<li>memiliki akses buku di rumah;</li>
+</ul>
+<p>lebih mungkin membawa buku <strong>dan</strong> memiliki kemampuan literasi yang lebih tinggi.</p>
+</section>
+<section id="tiga-pertanyaan-saat-membaca-hubungan" class="slide level2">
+<h2>Tiga Pertanyaan Saat Membaca Hubungan</h2>
+<p>Ketika menemukan hubungan antara dua variabel, tanyakan:</p>
+<h3 id="apa-polanya">1. Apa polanya?</h3>
+<p>Positif, negatif, atau tidak jelas?</p>
+<h3 id="seberapa-kuat">2. Seberapa kuat?</h3>
+<p>Apakah hubungan lemah atau kuat?</p>
+<h3 id="apakah-hubungan-itu-kausal">3. Apakah hubungan itu kausal?</h3>
+<p>Apakah kita memiliki desain penelitian yang memungkinkan kesimpulan sebab-akibat?</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-7" class="title-slide slide level1 center">
+<h1>Bagian 7</h1>
+
+</section>
+<section id="studi-kasus-data-pendidikan" class="slide level2">
+<h2>Studi Kasus: Data Pendidikan</h2>
+<p>Kita akan menggunakan contoh sederhana.</p>
+<p>Misalkan kita memiliki data:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Anak</th>
+<th style="text-align: right;">Kehadiran (%)</th>
+<th style="text-align: right;">Waktu Belajar</th>
+<th style="text-align: right;">Skor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">86</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">78</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">72</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">91</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">82</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pertanyaan-1-z-score" class="slide level2">
+<h2>Pertanyaan 1 — Z-score</h2>
+<p>Rata-rata skor:</p>
+<p><span class="math display">\[
+\bar{x}=76.1
+\]</span></p>
+<p>Misalkan:</p>
+<p><span class="math display">\[
+s=10.2
+\]</span></p>
+<p>Hitung z-score untuk anak E dengan skor 91.</p>
+<p>Kemudian interpretasikan.</p>
+</section>
+<section id="pertanyaan-2-scatterplot" class="slide level2">
+<h2>Pertanyaan 2 — Scatterplot</h2>
+<p>Buat scatterplot:</p>
+<ul>
+<li>X = Waktu Belajar</li>
+<li>Y = Skor</li>
+</ul>
+<p>Kemudian jawab:</p>
+<ol type="1">
+<li>Bagaimana arah hubungan?</li>
+<li>Apakah pola terlihat linear?</li>
+<li>Apakah terdapat pencilan?</li>
+<li>Apakah hubungan terlihat kuat?</li>
+</ol>
+</section>
+<section id="pertanyaan-3-pearsons-r" class="slide level2">
+<h2>Pertanyaan 3 — Pearson’s <span class="math inline">\(r\)</span></h2>
+<p>Hitung:</p>
+<p><span class="math display">\[
+r
+\]</span></p>
+<p>Kemudian tuliskan interpretasi dalam <strong>satu kalimat</strong>.</p>
+<p>Gunakan struktur:</p>
+<blockquote>
+<p>“Terdapat hubungan linear … antara … dan …”</p>
+</blockquote>
+<p>Hindari langsung menggunakan kata:</p>
+<blockquote>
+<p>“menyebabkan”.</p>
+</blockquote>
+</section>
+<section id="pertanyaan-4-regresi" class="slide level2">
+<h2>Pertanyaan 4 — Regresi</h2>
+<p>Bangun model:</p>
+<p><span class="math display">\[
+Score \sim StudyTime
+\]</span></p>
+<p>Kemudian tentukan:</p>
+<ul>
+<li>intercept;</li>
+<li>slope;</li>
+<li>persamaan regresi;</li>
+<li>prediksi skor jika waktu belajar = 7 jam.</li>
+</ul>
+</section>
+<section id="pertanyaan-5-kualitas-model" class="slide level2">
+<h2>Pertanyaan 5 — Kualitas Model</h2>
+<p>Perhatikan:</p>
+<p><span class="math display">\[
+R^2
+\]</span></p>
+<p>Kemudian jawab:</p>
+<blockquote>
+<p>Seberapa besar variasi skor yang dapat dijelaskan oleh waktu belajar melalui model tersebut?</p>
+</blockquote>
+<p>Lalu tuliskan:</p>
+<blockquote>
+<p>“Model ini belum menjelaskan seluruh variasi karena …”</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-8" class="title-slide slide level1 center">
+<h1>Bagian 8</h1>
+
+</section>
+<section id="contoh-dengan-r" class="slide level2">
+<h2>Contoh dengan R</h2>
+<p>Data:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID Attendance StudyTime Score
+1  A         95         8    86
+2  B         90         6    78
+3  C         80         5    72
+4  D         75         3    65
+5  E         98         9    91
+6  F         70         2    60
+7  G         85         6    75
+8  H         92         7    82</code></pre>
+</div>
+</div>
+</section>
+<section id="scatterplot-1" class="slide level2">
+<h2>Scatterplot</h2>
+
+<img data-src="statpend5_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="pearsons-r" class="slide level2">
+<h2>Pearson’s <span class="math inline">\(r\)</span></h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9948911</code></pre>
+</div>
+</div>
+<p>Pertanyaan:</p>
+<blockquote>
+<p>Apakah hubungan tersebut positif atau negatif?</p>
+</blockquote>
+<blockquote>
+<p>Apakah hubungan tersebut terlihat kuat?</p>
+</blockquote>
+</section>
+<section id="regresi" class="slide level2">
+<h2>Regresi</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Score ~ StudyTime, data = student)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2152 -0.1661  0.3260  0.7231  0.8671 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  51.0506     1.1136   45.84 7.22e-09 ***
+StudyTime     4.3608     0.1806   24.14 3.32e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.135 on 6 degrees of freedom
+Multiple R-squared:  0.9898,    Adjusted R-squared:  0.9881 
+F-statistic: 582.7 on 1 and 6 DF,  p-value: 3.321e-07</code></pre>
+</div>
+</div>
+<p>Perhatikan:</p>
+<ul>
+<li><code>(Intercept)</code></li>
+<li><code>StudyTime</code></li>
+<li><code>Multiple R-squared</code></li>
+</ul>
+</section>
+<section id="visualisasi-regresi" class="slide level2">
+<h2>Visualisasi Regresi</h2>
+
+<img data-src="statpend5_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="bagian-9" class="title-slide slide level1 center">
+<h1>Bagian 9</h1>
+
+</section>
+<section id="bagaimana-menulis-interpretasi" class="slide level2">
+<h2>Bagaimana Menulis Interpretasi?</h2>
+<p>Hindari hanya menulis:</p>
+<blockquote>
+<p>“r = 0.85.”</p>
+</blockquote>
+<p>Itu belum merupakan interpretasi.</p>
+<p>Gunakan pola:</p>
+<blockquote>
+<p><strong>Hasil menunjukkan terdapat hubungan linear positif yang kuat antara waktu belajar dan skor.</strong></p>
+</blockquote>
+<p>Untuk regresi:</p>
+<blockquote>
+<p><strong>Setiap peningkatan satu jam waktu belajar berkaitan dengan peningkatan skor yang diprediksi sebesar … poin.</strong></p>
+</blockquote>
+<p>Untuk <span class="math inline">\(R^2\)</span>:</p>
+<blockquote>
+<p><strong>Model menjelaskan sekitar …% variasi skor berdasarkan waktu belajar.</strong></p>
+</blockquote>
+</section>
+<section id="kesalahan-yang-perlu-dihindari" class="slide level2">
+<h2>Kesalahan yang Perlu Dihindari</h2>
+<h3 id="waktu-belajar-menyebabkan-skor-meningkat.">❌ “Waktu belajar menyebabkan skor meningkat.”</h3>
+<p>Jika penelitian hanya observasional, kesimpulan ini terlalu jauh.</p>
+<h3 id="section">✓</h3>
+<blockquote>
+<p>“Waktu belajar memiliki hubungan positif dengan skor.”</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+<h3 id="korelasi-080-berarti-80.">❌ “Korelasi 0,80 berarti 80%.”</h3>
+<p>Tidak tepat.</p>
+<h3 id="section-1">✓</h3>
+<blockquote>
+<p>“<span class="math inline">\(r=0.80\)</span> menunjukkan hubungan linear positif yang kuat.”</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+<h3 id="r²-064-berarti-x-menjelaskan-64-penyebab-y.">❌ “R² = 0,64 berarti X menjelaskan 64% penyebab Y.”</h3>
+<p>Tidak tepat.</p>
+<h3 id="section-2">✓</h3>
+<blockquote>
+<p>“<span class="math inline">\(R^2=0.64\)</span> menunjukkan model menjelaskan sekitar 64% variasi Y.”</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="aktivitas-kelompok" class="title-slide slide level1 center">
+<h1>Aktivitas Kelompok</h1>
+
+</section>
+<section id="membaca-data-pendidikan" class="slide level2">
+<h2>Membaca Data Pendidikan</h2>
+<p>Dalam kelompok kecil, lakukan:</p>
+<h3 id="z-score-1">1. Z-score</h3>
+<p>Pilih satu variabel numerik.</p>
+<p>Hitung z-score untuk:</p>
+<ul>
+<li>satu nilai di bawah rata-rata;</li>
+<li>satu nilai di atas rata-rata.</li>
+</ul>
+<h3 id="scatterplot-2">2. Scatterplot</h3>
+<p>Pilih dua variabel numerik.</p>
+<p>Buat scatterplot dan jelaskan polanya.</p>
+<h3 id="korelasi">3. Korelasi</h3>
+<p>Hitung Pearson’s <span class="math inline">\(r\)</span>.</p>
+<p>Interpretasikan arah dan kekuatannya.</p>
+<h3 id="regresi-1">4. Regresi</h3>
+<p>Bangun regresi sederhana.</p>
+<p>Tuliskan:</p>
+<ul>
+<li>persamaan;</li>
+<li>slope;</li>
+<li>prediksi;</li>
+<li><span class="math inline">\(R^2\)</span>.</li>
+</ul>
+<h3 id="kritik">5. Kritik</h3>
+<p>Jawab:</p>
+<blockquote>
+<p><strong>Apa yang tidak dapat kita simpulkan dari analisis ini?</strong></p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="diskusi-kelas" class="title-slide slide level1 center">
+<h1>Diskusi Kelas</h1>
+
+</section>
+<section id="mana-yang-lebih-penting" class="slide level2">
+<h2>Mana yang Lebih Penting?</h2>
+<p>Bayangkan dua hasil penelitian.</p>
+<h3 id="penelitian-a">Penelitian A</h3>
+<p><span class="math display">\[
+r=0.82
+\]</span></p>
+<p>tetapi peneliti hanya memiliki data observasional.</p>
+<h3 id="penelitian-b">Penelitian B</h3>
+<p><span class="math display">\[
+r=0.45
+\]</span></p>
+<p>tetapi penelitian menggunakan desain eksperimen yang baik.</p>
+<h3 id="pertanyaan-2">Pertanyaan</h3>
+<p>Mana yang lebih kuat untuk mendukung klaim:</p>
+<blockquote>
+<p><strong>“X menyebabkan perubahan pada Y”?</strong></p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ringkasan" class="title-slide slide level1 center">
+<h1>Ringkasan</h1>
+<p>Hari ini kita mempelajari:</p>
+<p><strong>Z-score</strong></p>
+<p>→ posisi relatif suatu nilai</p>
+<p><strong>Crosstab</strong></p>
+<p>→ hubungan dua variabel kategorik</p>
+<p><strong>Scatterplot</strong></p>
+<p>→ pola hubungan dua variabel numerik</p>
+<p><strong>Pearson’s <span class="math inline">\(r\)</span></strong></p>
+<p>→ arah dan kekuatan hubungan linear</p>
+<p><strong>Regresi</strong></p>
+<p>→ memodelkan dan memprediksi Y berdasarkan X</p>
+<p><strong><span class="math inline">\(R^2\)</span></strong></p>
+<p>→ proporsi variasi Y yang dijelaskan model</p>
+<p><strong>Korelasi ≠ kausalitas</strong></p>
+<p>→ hubungan statistik tidak otomatis berarti sebab-akibat.</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="pertanyaan-penutup" class="title-slide slide level1 center">
+<h1>Pertanyaan Penutup</h1>
+<p>Sebelum menyimpulkan suatu hubungan dari data pendidikan, tanyakan:</p>
+<blockquote>
+<p><strong>Apa yang sebenarnya ditunjukkan oleh data?</strong></p>
+</blockquote>
+<p>dan</p>
+<blockquote>
+<p><strong>Apa yang belum dapat kita simpulkan?</strong></p>
+</blockquote>
+<p>Statistik bukan hanya tentang memperoleh angka.</p>
+<p><strong>Statistik adalah tentang membuat kesimpulan yang sesuai dengan bukti.</strong></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="alokasi-waktu" class="title-slide slide level1 center">
+<h1>Alokasi Waktu</h1>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Kegiatan</th>
+<th style="text-align: right;">Waktu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Review &amp; pengantar</td>
+<td style="text-align: right;">10 menit</td>
+</tr>
+<tr class="even">
+<td>Z-score + latihan</td>
+<td style="text-align: right;">25 menit</td>
+</tr>
+<tr class="odd">
+<td>Crosstab &amp; scatterplot</td>
+<td style="text-align: right;">20 menit</td>
+</tr>
+<tr class="even">
+<td>Pearson’s <span class="math inline">\(r\)</span></td>
+<td style="text-align: right;">20 menit</td>
+</tr>
+<tr class="odd">
+<td>Regresi linear</td>
+<td style="text-align: right;">25 menit</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R^2\)</span> &amp; residual</td>
+<td style="text-align: right;">15 menit</td>
+</tr>
+<tr class="odd">
+<td>Korelasi ≠ kausalitas</td>
+<td style="text-align: right;">10 menit</td>
+</tr>
+<tr class="even">
+<td>Studi kasus dengan R</td>
+<td style="text-align: right;">20 menit</td>
+</tr>
+<tr class="odd">
+<td>Diskusi &amp; refleksi</td>
+<td style="text-align: right;">5 menit</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>150 menit</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="tugas-singkat" class="title-slide slide level1 center">
+<h1>Tugas Singkat</h1>
+<p>Gunakan satu dataset pendidikan.</p>
+<p>Pilih:</p>
+<ul>
+<li><strong>1 variabel numerik</strong> untuk analisis z-score;</li>
+<li><strong>2 variabel numerik</strong> untuk scatterplot, korelasi, dan regresi;</li>
+<li><strong>2 variabel kategorik</strong> jika tersedia untuk crosstab.</li>
+</ul>
+<p>Laporkan:</p>
+<ol type="1">
+<li>satu contoh z-score dan interpretasinya;</li>
+<li>satu scatterplot;</li>
+<li>nilai Pearson’s <span class="math inline">\(r\)</span> dan interpretasinya;</li>
+<li>persamaan regresi;</li>
+<li>nilai <span class="math inline">\(R^2\)</span> dan interpretasinya;</li>
+<li><strong>satu paragraf tentang batasan kesimpulan</strong> yang dapat dibuat dari analisis tersebut.</li>
+</ol>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="statpend5_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="statpend5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="statpend5_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="statpend5_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="statpend5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="statpend5_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="statpend5_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="statpend5_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="statpend5_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="statpend5_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

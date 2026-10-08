@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id" xml:lang="id"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Indira Puteri Kinasih">
+
+<title>Statistik Deskriptif untuk Data Pendidikan</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="statpend4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="statpend4_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="statpend4_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="statpend4_files/libs/quarto-html/popper.min.js"></script>
+<script src="statpend4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="statpend4_files/libs/quarto-html/anchor.min.js"></script>
+<link href="statpend4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="statpend4_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="statpend4_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="statpend4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="statpend4_files/libs/bootstrap/bootstrap-c2e55264ed47ce3b2e0326a2269f9400.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Daftar Isi</h2>
+   
+  <ul>
+  <li><a href="#pertemuan-4-menyajikan-data-dalam-tabel-dan-grafik" id="toc-pertemuan-4-menyajikan-data-dalam-tabel-dan-grafik" class="nav-link active" data-scroll-target="#pertemuan-4-menyajikan-data-dalam-tabel-dan-grafik">Pertemuan 4 — Menyajikan Data dalam Tabel dan Grafik</a>
+  <ul class="collapse">
+  <li><a href="#capaian-pembelajaran" id="toc-capaian-pembelajaran" class="nav-link" data-scroll-target="#capaian-pembelajaran">Capaian Pembelajaran</a></li>
+  <li><a href="#mengapa-data-perlu-disajikan" id="toc-mengapa-data-perlu-disajikan" class="nav-link" data-scroll-target="#mengapa-data-perlu-disajikan">Mengapa Data Perlu Disajikan?</a></li>
+  <li><a href="#tabel-distribusi-frekuensi" id="toc-tabel-distribusi-frekuensi" class="nav-link" data-scroll-target="#tabel-distribusi-frekuensi">Tabel Distribusi Frekuensi</a></li>
+  <li><a href="#diagram-batang" id="toc-diagram-batang" class="nav-link" data-scroll-target="#diagram-batang">Diagram Batang</a></li>
+  <li><a href="#diagram-lingkaran" id="toc-diagram-lingkaran" class="nav-link" data-scroll-target="#diagram-lingkaran">Diagram Lingkaran</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#memilih-bentuk-penyajian" id="toc-memilih-bentuk-penyajian" class="nav-link" data-scroll-target="#memilih-bentuk-penyajian">Memilih Bentuk Penyajian</a></li>
+  <li><a href="#praktikum-excel" id="toc-praktikum-excel" class="nav-link" data-scroll-target="#praktikum-excel">Praktikum Excel</a></li>
+  <li><a href="#tugas-individu" id="toc-tugas-individu" class="nav-link" data-scroll-target="#tugas-individu">Tugas Individu</a></li>
+  </ul></li>
+  <li><a href="#pertemuan-5-ukuran-pemusatan-data" id="toc-pertemuan-5-ukuran-pemusatan-data" class="nav-link" data-scroll-target="#pertemuan-5-ukuran-pemusatan-data">Pertemuan 5 — Ukuran Pemusatan Data</a>
+  <ul class="collapse">
+  <li><a href="#capaian-pembelajaran-1" id="toc-capaian-pembelajaran-1" class="nav-link" data-scroll-target="#capaian-pembelajaran-1">Capaian Pembelajaran</a></li>
+  <li><a href="#apa-itu-ukuran-pemusatan" id="toc-apa-itu-ukuran-pemusatan" class="nav-link" data-scroll-target="#apa-itu-ukuran-pemusatan">Apa Itu Ukuran Pemusatan?</a></li>
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
+  <li><a href="#modus" id="toc-modus" class="nav-link" data-scroll-target="#modus">Modus</a></li>
+  <li><a href="#membandingkan-mean-median-dan-modus" id="toc-membandingkan-mean-median-dan-modus" class="nav-link" data-scroll-target="#membandingkan-mean-median-dan-modus">Membandingkan Mean, Median, dan Modus</a></li>
+  <li><a href="#contoh-data-pendidikan" id="toc-contoh-data-pendidikan" class="nav-link" data-scroll-target="#contoh-data-pendidikan">Contoh Data Pendidikan</a></li>
+  <li><a href="#praktikum-excel-1" id="toc-praktikum-excel-1" class="nav-link" data-scroll-target="#praktikum-excel-1">Praktikum Excel</a></li>
+  <li><a href="#diskusi" id="toc-diskusi" class="nav-link" data-scroll-target="#diskusi">Diskusi</a></li>
+  <li><a href="#kuis" id="toc-kuis" class="nav-link" data-scroll-target="#kuis">Kuis</a></li>
+  </ul></li>
+  <li><a href="#pertemuan-6-ukuran-penyebaran-data" id="toc-pertemuan-6-ukuran-penyebaran-data" class="nav-link" data-scroll-target="#pertemuan-6-ukuran-penyebaran-data">Pertemuan 6 — Ukuran Penyebaran Data</a>
+  <ul class="collapse">
+  <li><a href="#capaian-pembelajaran-2" id="toc-capaian-pembelajaran-2" class="nav-link" data-scroll-target="#capaian-pembelajaran-2">Capaian Pembelajaran</a></li>
+  <li><a href="#mengapa-mengukur-penyebaran" id="toc-mengapa-mengukur-penyebaran" class="nav-link" data-scroll-target="#mengapa-mengukur-penyebaran">Mengapa Mengukur Penyebaran?</a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range</a></li>
+  <li><a href="#varians" id="toc-varians" class="nav-link" data-scroll-target="#varians">Varians</a></li>
+  <li><a href="#simpangan-baku" id="toc-simpangan-baku" class="nav-link" data-scroll-target="#simpangan-baku">Simpangan Baku</a></li>
+  <li><a href="#contoh-perhitungan" id="toc-contoh-perhitungan" class="nav-link" data-scroll-target="#contoh-perhitungan">Contoh Perhitungan</a></li>
+  <li><a href="#interpretasi" id="toc-interpretasi" class="nav-link" data-scroll-target="#interpretasi">Interpretasi</a></li>
+  <li><a href="#praktikum-excel-2" id="toc-praktikum-excel-2" class="nav-link" data-scroll-target="#praktikum-excel-2">Praktikum Excel</a></li>
+  <li><a href="#membandingkan-dua-kelompok" id="toc-membandingkan-dua-kelompok" class="nav-link" data-scroll-target="#membandingkan-dua-kelompok">Membandingkan Dua Kelompok</a></li>
+  </ul></li>
+  <li><a href="#integrasi-pertemuan-46" id="toc-integrasi-pertemuan-46" class="nav-link" data-scroll-target="#integrasi-pertemuan-46">Integrasi Pertemuan 4–6</a></li>
+  <li><a href="#latihan-terpadu" id="toc-latihan-terpadu" class="nav-link" data-scroll-target="#latihan-terpadu">Latihan Terpadu</a>
+  <ul class="collapse">
+  <li><a href="#tugas-akhir-rangkaian-pertemuan" id="toc-tugas-akhir-rangkaian-pertemuan" class="nav-link" data-scroll-target="#tugas-akhir-rangkaian-pertemuan">Tugas Akhir Rangkaian Pertemuan</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Format Lain</h2><ul><li><a href="statpend4.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistik Deskriptif untuk Data Pendidikan</h1>
+<p class="subtitle lead">Pertemuan 4–6 | Statistik Pendidikan (AUD0331)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Penulis</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Indira Puteri Kinasih </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="pertemuan-4-menyajikan-data-dalam-tabel-dan-grafik" class="level1">
+<h1>Pertemuan 4 — Menyajikan Data dalam Tabel dan Grafik</h1>
+<section id="capaian-pembelajaran" class="level2">
+<h2 class="anchored" data-anchor-id="capaian-pembelajaran">Capaian Pembelajaran</h2>
+<p>Mahasiswa mampu menyusun tabel distribusi frekuensi, memilih grafik yang sesuai, serta mengolah data pendidikan menggunakan Excel.</p>
+</section>
+<section id="mengapa-data-perlu-disajikan" class="level2">
+<h2 class="anchored" data-anchor-id="mengapa-data-perlu-disajikan">Mengapa Data Perlu Disajikan?</h2>
+<p>Data mentah sering sulit dibaca. Tabel dan grafik membantu melihat pola, membandingkan kelompok, dan menyampaikan informasi secara ringkas.</p>
+</section>
+<section id="tabel-distribusi-frekuensi" class="level2">
+<h2 class="anchored" data-anchor-id="tabel-distribusi-frekuensi">Tabel Distribusi Frekuensi</h2>
+<p>Tabel distribusi frekuensi menunjukkan banyaknya data pada setiap kategori atau interval.</p>
+<p>Contoh nilai asesmen 20 anak:</p>
+<p><code>65, 70, 72, 75, 75, 78, 80, 80, 82, 83, 85, 85, 86, 88, 90, 90, 92, 93, 95, 95</code></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Interval nilai</th>
+<th style="text-align: right;">Frekuensi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>60–69</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>70–79</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td>80–89</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td>90–99</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>20</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Frekuensi adalah banyaknya pengamatan yang masuk ke dalam kategori atau interval tertentu.</p>
+</section>
+<section id="diagram-batang" class="level2">
+<h2 class="anchored" data-anchor-id="diagram-batang">Diagram Batang</h2>
+<p>Diagram batang cocok untuk data kategorik atau diskrit dan digunakan terutama untuk membandingkan kategori.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Media</th>
+<th style="text-align: right;">Jumlah guru</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Buku cerita</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td>Balok</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td>Kartu gambar</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td>Media digital</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diagram-lingkaran" class="level2">
+<h2 class="anchored" data-anchor-id="diagram-lingkaran">Diagram Lingkaran</h2>
+<p>Diagram lingkaran menunjukkan proporsi bagian terhadap keseluruhan. Cocok ketika fokus analisis adalah komposisi.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Media utama</th>
+<th style="text-align: right;">Jumlah</th>
+<th style="text-align: right;">Persentase</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Buku cerita</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">30%</td>
+</tr>
+<tr class="even">
+<td>Balok</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">20%</td>
+</tr>
+<tr class="odd">
+<td>Kartu gambar</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">37,5%</td>
+</tr>
+<tr class="even">
+<td>Media digital</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12,5%</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>40</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="histogram" class="level2">
+<h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
+<p>Histogram digunakan untuk menunjukkan distribusi data numerik yang dikelompokkan dalam interval, misalnya nilai asesmen, tinggi badan, berat badan, atau waktu penyelesaian tugas.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Diagram batang</th>
+<th>Histogram</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Umumnya untuk kategori</td>
+<td>Untuk data numerik berinterval</td>
+</tr>
+<tr class="even">
+<td>Batang terpisah</td>
+<td>Batang berdempetan</td>
+</tr>
+<tr class="odd">
+<td>Fokus pada perbandingan kategori</td>
+<td>Fokus pada distribusi</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="memilih-bentuk-penyajian" class="level2">
+<h2 class="anchored" data-anchor-id="memilih-bentuk-penyajian">Memilih Bentuk Penyajian</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Kondisi data</th>
+<th>Bentuk penyajian</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Membandingkan kategori</td>
+<td>Diagram batang</td>
+</tr>
+<tr class="even">
+<td>Menunjukkan proporsi</td>
+<td>Diagram lingkaran</td>
+</tr>
+<tr class="odd">
+<td>Menunjukkan distribusi data numerik</td>
+<td>Histogram</td>
+</tr>
+<tr class="even">
+<td>Menampilkan angka secara rinci</td>
+<td>Tabel</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="praktikum-excel" class="level2">
+<h2 class="anchored" data-anchor-id="praktikum-excel">Praktikum Excel</h2>
+<ol type="1">
+<li>Masukkan data ke Excel.</li>
+<li>Periksa kelengkapan dan konsistensi data.</li>
+<li>Susun data dari kecil ke besar.</li>
+<li>Buat tabel distribusi frekuensi.</li>
+<li>Buat diagram batang dan histogram.</li>
+<li>Buat diagram lingkaran jika terdapat variabel kategorik.</li>
+<li>Beri judul dan label sumbu.</li>
+<li>Tuliskan interpretasi.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Penting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Grafik bukan sekadar hiasan. Setiap grafik harus membantu pembaca memahami informasi tertentu dari data.</p>
+</div>
+</div>
+</section>
+<section id="tugas-individu" class="level2">
+<h2 class="anchored" data-anchor-id="tugas-individu">Tugas Individu</h2>
+<p>Gunakan dataset pendidikan yang diberikan dosen. Buat tabel distribusi frekuensi, satu diagram batang, satu histogram, dan diagram lingkaran jika terdapat variabel kategorik. Tambahkan 2–3 kalimat interpretasi untuk setiap penyajian.</p>
+</section>
+</section>
+<section id="pertemuan-5-ukuran-pemusatan-data" class="level1">
+<h1>Pertemuan 5 — Ukuran Pemusatan Data</h1>
+<section id="capaian-pembelajaran-1" class="level2">
+<h2 class="anchored" data-anchor-id="capaian-pembelajaran-1">Capaian Pembelajaran</h2>
+<p>Mahasiswa mampu menghitung mean, median, dan modus serta menginterpretasikannya dalam konteks data pendidikan.</p>
+</section>
+<section id="apa-itu-ukuran-pemusatan" class="level2">
+<h2 class="anchored" data-anchor-id="apa-itu-ukuran-pemusatan">Apa Itu Ukuran Pemusatan?</h2>
+<p>Ukuran pemusatan memberikan gambaran tentang nilai yang mewakili pusat suatu kumpulan data. Tiga ukuran utama adalah mean, median, dan modus.</p>
+</section>
+<section id="mean" class="level2">
+<h2 class="anchored" data-anchor-id="mean">Mean</h2>
+<p>Mean atau rata-rata aritmetika dihitung dengan menjumlahkan seluruh nilai dan membaginya dengan banyaknya data.</p>
+<p><span class="math display">
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
+</span></p>
+<p>Contoh:</p>
+<p><span class="math display">
+70,75,80,85,90
+</span></p>
+<p><span class="math display">
+\bar{x}=\frac{70+75+80+85+90}{5}=80
+</span></p>
+</section>
+<section id="median" class="level2">
+<h2 class="anchored" data-anchor-id="median">Median</h2>
+<p>Median adalah nilai tengah setelah data diurutkan.</p>
+<p>Untuk data ganjil:</p>
+<p><span class="math display">
+65,70,75,80,90
+</span></p>
+<p>Median = <strong>75</strong>.</p>
+<p>Untuk data genap:</p>
+<p><span class="math display">
+65,70,75,80
+</span></p>
+<p><span class="math display">
+\text{Median}=\frac{70+75}{2}=72,5
+</span></p>
+</section>
+<section id="modus" class="level2">
+<h2 class="anchored" data-anchor-id="modus">Modus</h2>
+<p>Modus adalah nilai yang paling sering muncul.</p>
+<p>Contoh: <code>70, 75, 75, 80, 85</code> → modus = <strong>75</strong>.</p>
+<p>Data dapat tidak memiliki modus, memiliki satu modus, atau memiliki lebih dari satu modus.</p>
+</section>
+<section id="membandingkan-mean-median-dan-modus" class="level2">
+<h2 class="anchored" data-anchor-id="membandingkan-mean-median-dan-modus">Membandingkan Mean, Median, dan Modus</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ukuran</th>
+<th>Makna</th>
+<th>Contoh penggunaan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean</td>
+<td>Rata-rata seluruh nilai</td>
+<td>Data numerik tanpa pencilan ekstrem</td>
+</tr>
+<tr class="even">
+<td>Median</td>
+<td>Nilai tengah</td>
+<td>Data numerik dengan pencilan/distribusi menceng</td>
+</tr>
+<tr class="odd">
+<td>Modus</td>
+<td>Nilai yang paling sering muncul</td>
+<td>Data kategorik maupun numerik</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="contoh-data-pendidikan" class="level2">
+<h2 class="anchored" data-anchor-id="contoh-data-pendidikan">Contoh Data Pendidikan</h2>
+<p>Nilai asesmen: <code>60, 70, 75, 80, 95</code>.</p>
+<p>Mean = 76, median = 75, dan tidak ada modus karena tidak ada nilai yang berulang.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Catatan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mean, median, dan modus dapat memberikan informasi yang berbeda. Karena itu, satu ukuran belum tentu cukup untuk menggambarkan data.</p>
+</div>
+</div>
+</section>
+<section id="praktikum-excel-1" class="level2">
+<h2 class="anchored" data-anchor-id="praktikum-excel-1">Praktikum Excel</h2>
+<pre class="text"><code>=AVERAGE(B2:B21)
+=MEDIAN(B2:B21)
+=MODE.SNGL(B2:B21)</code></pre>
+<p>Jika tidak ada nilai yang berulang, <code>MODE.SNGL</code> dapat menghasilkan error karena data tidak memiliki modus.</p>
+</section>
+<section id="diskusi" class="level2">
+<h2 class="anchored" data-anchor-id="diskusi">Diskusi</h2>
+<p>Bandingkan:</p>
+<p><strong>Kelompok A:</strong> <code>70, 72, 74, 76, 78</code><br>
+<strong>Kelompok B:</strong> <code>50, 70, 74, 76, 100</code></p>
+<p>Diskusikan apakah mean dan median memberikan gambaran yang sama dan apa pengaruh nilai ekstrem.</p>
+</section>
+<section id="kuis" class="level2">
+<h2 class="anchored" data-anchor-id="kuis">Kuis</h2>
+<ol type="1">
+<li>Hitung mean dari <code>70, 75, 80, 85, 90</code>.</li>
+<li>Tentukan median dari <code>65, 70, 72, 80, 85</code>.</li>
+<li>Tentukan modus dari <code>70, 75, 75, 80, 85</code>.</li>
+<li>Jelaskan perbedaan mean dan median.</li>
+<li>Mengapa median dapat digunakan ketika terdapat nilai ekstrem?</li>
+</ol>
+</section>
+</section>
+<section id="pertemuan-6-ukuran-penyebaran-data" class="level1">
+<h1>Pertemuan 6 — Ukuran Penyebaran Data</h1>
+<section id="capaian-pembelajaran-2" class="level2">
+<h2 class="anchored" data-anchor-id="capaian-pembelajaran-2">Capaian Pembelajaran</h2>
+<p>Mahasiswa mampu menghitung range, varians, dan simpangan baku serta menginterpretasikan variasi perkembangan peserta didik.</p>
+</section>
+<section id="mengapa-mengukur-penyebaran" class="level2">
+<h2 class="anchored" data-anchor-id="mengapa-mengukur-penyebaran">Mengapa Mengukur Penyebaran?</h2>
+<p>Dua kelompok dapat memiliki rata-rata yang sama tetapi tingkat variasi yang berbeda.</p>
+<p><strong>Kelompok A:</strong> <code>78, 79, 80, 81, 82</code><br>
+<strong>Kelompok B:</strong> <code>60, 70, 80, 90, 100</code></p>
+<p>Keduanya memiliki mean 80, tetapi penyebaran datanya berbeda. Karena itu, ukuran pemusatan saja belum cukup.</p>
+</section>
+<section id="range" class="level2">
+<h2 class="anchored" data-anchor-id="range">Range</h2>
+<p>Range adalah selisih nilai maksimum dan minimum.</p>
+<p><span class="math display">
+R=X_{\max}-X_{\min}
+</span></p>
+<p>Untuk <code>70, 75, 80, 85, 90</code>:</p>
+<p><span class="math display">
+R=90-70=20
+</span></p>
+</section>
+<section id="varians" class="level2">
+<h2 class="anchored" data-anchor-id="varians">Varians</h2>
+<p>Varians mengukur rata-rata kuadrat penyimpangan data dari mean.</p>
+<p>Untuk populasi:</p>
+<p><span class="math display">
+\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}
+</span></p>
+<p>Untuk sampel:</p>
+<p><span class="math display">
+s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
+</span></p>
+</section>
+<section id="simpangan-baku" class="level2">
+<h2 class="anchored" data-anchor-id="simpangan-baku">Simpangan Baku</h2>
+<p>Simpangan baku adalah akar kuadrat dari varians.</p>
+<p>Untuk populasi:</p>
+<p><span class="math display">
+\sigma=\sqrt{\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}}
+</span></p>
+<p>Untuk sampel:</p>
+<p><span class="math display">
+s=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}}
+</span></p>
+</section>
+<section id="contoh-perhitungan" class="level2">
+<h2 class="anchored" data-anchor-id="contoh-perhitungan">Contoh Perhitungan</h2>
+<p>Data: <code>70, 75, 80, 85, 90</code>, dengan mean 80.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Nilai</th>
+<th style="text-align: right;">(x-{x})</th>
+<th style="text-align: right;">((x-{x})^2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">-10</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">-5</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Jumlah</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>250</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Jika dianggap sebagai populasi:</p>
+<p><span class="math display">
+\sigma^2=\frac{250}{5}=50
+</span></p>
+<p><span class="math display">
+\sigma=\sqrt{50}\approx7,07
+</span></p>
+<p>Jika dianggap sebagai sampel:</p>
+<p><span class="math display">
+s^2=\frac{250}{4}=62,5
+</span></p>
+<p><span class="math display">
+s=\sqrt{62,5}\approx7,91
+</span></p>
+</section>
+<section id="interpretasi" class="level2">
+<h2 class="anchored" data-anchor-id="interpretasi">Interpretasi</h2>
+<p>Simpangan baku yang lebih besar menunjukkan data lebih menyebar dari pusatnya. Simpangan baku yang lebih kecil menunjukkan data lebih terkonsentrasi di sekitar pusatnya.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Penting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Variasi yang lebih kecil atau lebih besar tidak otomatis berarti kondisi pendidikan lebih baik atau lebih buruk. Simpangan baku hanya menggambarkan penyebaran data.</p>
+</div>
+</div>
+</section>
+<section id="praktikum-excel-2" class="level2">
+<h2 class="anchored" data-anchor-id="praktikum-excel-2">Praktikum Excel</h2>
+<p>Untuk data pada B2:B21:</p>
+<pre class="text"><code>=MAX(B2:B21)-MIN(B2:B21)
+=VAR.S(B2:B21)
+=STDEV.S(B2:B21)</code></pre>
+<p>Jika seluruh data diperlakukan sebagai populasi:</p>
+<pre class="text"><code>=VAR.P(B2:B21)
+=STDEV.P(B2:B21)</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Peringatan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>VAR.S</code> dan <code>STDEV.S</code> digunakan untuk sampel, sedangkan <code>VAR.P</code> dan <code>STDEV.P</code> digunakan untuk populasi. Pemilihan fungsi harus mengikuti konteks penelitian.</p>
+</div>
+</div>
+</section>
+<section id="membandingkan-dua-kelompok" class="level2">
+<h2 class="anchored" data-anchor-id="membandingkan-dua-kelompok">Membandingkan Dua Kelompok</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Kelompok</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Simpangan baku</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">3,2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">12,5</td>
+</tr>
+</tbody>
+</table>
+<p>Mean kedua kelompok sama, tetapi penyebaran datanya berbeda. Kelompok dengan simpangan baku lebih besar memiliki nilai yang lebih bervariasi.</p>
+</section>
+</section>
+<section id="integrasi-pertemuan-46" class="level1">
+<h1>Integrasi Pertemuan 4–6</h1>
+<p><strong>Data mentah → Tabel/Grafik → Ukuran Pemusatan → Ukuran Penyebaran → Interpretasi</strong></p>
+<p>Contoh alur: data asesmen anak dikumpulkan → disusun dalam tabel → divisualisasikan → dihitung mean/median/modus → dihitung range/varians/simpangan baku → diinterpretasikan.</p>
+</section>
+<section id="latihan-terpadu" class="level1">
+<h1>Latihan Terpadu</h1>
+<p>Gunakan data:</p>
+<p><code>65, 70, 70, 75, 80, 80, 80, 85, 90, 95</code></p>
+<p>Lakukan:</p>
+<ol type="1">
+<li>Buat tabel distribusi frekuensi.</li>
+<li>Buat diagram batang.</li>
+<li>Buat histogram.</li>
+<li>Hitung mean.</li>
+<li>Hitung median.</li>
+<li>Tentukan modus.</li>
+<li>Hitung range.</li>
+<li>Hitung varians.</li>
+<li>Hitung simpangan baku.</li>
+<li>Tuliskan interpretasi singkat.</li>
+</ol>
+<section id="tugas-akhir-rangkaian-pertemuan" class="level2">
+<h2 class="anchored" data-anchor-id="tugas-akhir-rangkaian-pertemuan">Tugas Akhir Rangkaian Pertemuan</h2>
+<p>Gunakan dataset hasil asesmen anak yang diberikan dosen. Buat laporan analisis deskriptif sederhana yang memuat tabel data, tabel distribusi frekuensi, grafik yang sesuai, mean, median, modus, range, varians, simpangan baku, dan interpretasi hasil.</p>
+<p>Pengolahan dilakukan menggunakan <strong>Excel</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Penting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fokus tugas bukan hanya memperoleh angka, tetapi mampu menjelaskan <strong>apa arti angka dan grafik tersebut dalam konteks data pendidikan</strong>.</p>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Disalin!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Disalin!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

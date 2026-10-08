@@ -1,0 +1,418 @@
+---
+title: "Teknik Pengumpulan Data"
+subtitle: "Statistik Pendidikan (AUD0331)"
+author: Dr. Indira Puteri Kinasih
+lang: id
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    html-math-method: katex
+    theme: cosmo
+  
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+---
+
+# Capaian Pembelajaran
+
+Setelah mengikuti pertemuan ini, mahasiswa mampu:
+
+- menjelaskan teknik pengumpulan data dalam penelitian pendidikan;
+- membedakan observasi, angket, wawancara, dan dokumentasi;
+- memilih teknik pengumpulan data sesuai tujuan penelitian;
+- menyusun instrumen sederhana untuk observasi perkembangan anak.
+
+# Teknik dan Instrumen Pengumpulan Data
+
+Teknik pengumpulan data adalah cara yang digunakan peneliti untuk memperoleh data. Instrumen adalah alat yang digunakan untuk menerapkan teknik tersebut.
+
+| Teknik | Contoh instrumen |
+|---|---|
+| Observasi | lembar observasi, checklist, rating scale, catatan lapangan |
+| Angket | kuesioner/daftar pertanyaan |
+| Wawancara | pedoman wawancara |
+| Dokumentasi | checklist dokumen, formulir pencatatan |
+
+::: {.callout-important}
+**Jangan tertukar:** observasi adalah teknik, sedangkan lembar observasi adalah instrumen. Angket adalah teknik, sedangkan kuesioner adalah instrumen.
+:::
+
+## Observasi
+
+Observasi adalah teknik pengumpulan data dengan mengamati secara sistematis perilaku, aktivitas, atau kejadian yang menjadi objek penelitian.
+
+Observasi sesuai untuk mengamati perilaku anak saat bermain, interaksi dengan teman, keterlibatan dalam kegiatan, kemampuan motorik, dan respons terhadap media pembelajaran.
+
+Contoh pertanyaan penelitian:
+
+> Bagaimana kemampuan kerja sama anak selama kegiatan bermain balok secara berkelompok?
+
+Teknik yang sesuai adalah **observasi**, dengan instrumen berupa **lembar observasi**.
+
+Bentuk instrumen observasi dapat berupa checklist, rating scale, catatan lapangan, atau lembar observasi terstruktur.
+
+::: {.callout}
+**Contoh:** 
+
+**Tujuan:** Mengidentifikasi keterlibatan anak selama kegiatan bermain kelompok.
+
+**Subjek:** Anak usia 5–6 tahun
+
+| No. | Perilaku yang Diamati | Tidak | Ya | Catatan |
+|:---:|-----------------|:---:|:---:|---|
+| 1 | Anak mengikuti kegiatan bermain sampai selesai. | $\square$ | $\square$ | |
+| 2 | Anak menggunakan alat permainan sesuai fungsinya. | $\square$ | $\square$ | |
+| 3 | Anak berinteraksi dengan teman selama bermain. | $\square$ | $\square$ | |
+| 4 | Anak mengikuti aturan permainan. | $\square$ | $\square$ | |
+| 5 | Anak terlibat aktif dalam kegiatan kelompok. | $\square$ | $\square$ | |
+
+**Data yang dihasilkan:** hasil pengamatan terhadap perilaku anak.
+
+:::
+
+::: {.callout-warning}
+Hindari indikator seperti **"anak bersikap baik"**. Gunakan perilaku yang dapat diamati, misalnya **"anak berbagi alat bermain dengan teman."**
+:::
+
+## Angket
+
+Angket adalah teknik pengumpulan data dengan memberikan **pertanyaan atau pernyataan tertulis kepada responden**.
+
+Angket sesuai untuk mengetahui **pendapat, persepsi, sikap, pengalaman, atau laporan diri** responden.
+
+### Skala Likert
+
+Skala Likert merupakan salah satu bentuk skala respons yang sering digunakan dalam angket untuk mengukur **sikap, pendapat, persepsi, atau tingkat persetujuan** responden terhadap suatu pernyataan.
+
+Jumlah kategori respons dapat berbeda, misalnya **4, 5, atau 7 tingkat**.
+
+Contoh skala 4 tingkat:
+
+| Skor | Respons                   |
+| :--: | ------------------------- |
+|   1  | Sangat Tidak Setuju (STS) |
+|   2  | Tidak Setuju (TS)         |
+|   3  | Setuju (S)                |
+|   4  | Sangat Setuju (SS)        |
+
+> **Catatan:** Skala Likert adalah **format skala respons dalam instrumen**, bukan teknik pengumpulan data yang berdiri sendiri.
+
+
+::: {.callout}
+
+**Contoh**
+
+**Tujuan:** Mengetahui persepsi guru mengenai keterlibatan anak dalam kegiatan bermain.
+
+**Responden:** Guru PAUD
+
+**Petunjuk:** Berikan tanda pada jawaban yang sesuai dengan pendapat Anda.
+
+| No. | Pernyataan | STS | TS | S | SS |
+|:---:|---------------|:---:|:---:|:---:|:---:|
+| 1 | Kegiatan bermain membuat anak lebih aktif berinteraksi dengan teman. | $\square$ | $\square$ | $\square$ | $\square$ |
+| 2 | Kegiatan bermain meningkatkan keterlibatan anak dalam pembelajaran. | $\square$ | $\square$ | $\square$ | $\square$ |
+| 3 | Kegiatan bermain membantu anak mengikuti aturan kelompok. | $\square$ | $\square$ | $\square$ | $\square$ |
+| 4 | Anak menunjukkan antusiasme ketika kegiatan bermain dilakukan. | $\square$ | $\square$ | $\square$ | $\square$ |
+| 5 | Kegiatan bermain mendorong anak untuk terlibat aktif dalam kelompok. | $\square$ | $\square$ | $\square$ | $\square$ |
+
+:::	
+
+**Data yang dihasilkan:** skor jawaban guru, misalnya 1–4.
+
+
+::: {.callout-note}
+Angket memperoleh data **berdasarkan jawaban responden**. Jika tujuan penelitian adalah mengukur perilaku anak secara langsung, observasi dapat digunakan untuk memperoleh data melalui pengamatan terhadap perilaku tersebut.
+:::
+
+## Wawancara
+
+Wawancara adalah teknik pengumpulan data melalui **interaksi langsung antara peneliti dan informan** untuk memperoleh informasi secara verbal.
+
+Wawancara dapat digunakan untuk menggali **pengalaman, pendapat, persepsi, alasan, dan hambatan** yang tidak selalu dapat diperoleh melalui pengamatan langsung atau angket.
+
+Wawancara dapat berbentuk:
+
+* **Terstruktur:** pertanyaan telah disusun dan diberikan dengan urutan yang sama.
+* **Semi-terstruktur:** menggunakan pedoman pertanyaan, tetapi peneliti dapat mengembangkan pertanyaan sesuai respons informan.
+* **Tidak terstruktur:** tidak menggunakan daftar pertanyaan yang kaku; wawancara berlangsung lebih fleksibel.
+
+::: {.callout}
+
+**Contoh:**
+
+**Tujuan:** Menggali pengalaman guru mengenai keterlibatan anak dalam kegiatan bermain.
+
+**Informan:** Guru PAUD
+
+**Pedoman pertanyaan:**
+
+1. Bagaimana keterlibatan anak selama kegiatan bermain kelompok?
+2. Perilaku apa yang menunjukkan bahwa anak aktif terlibat?
+3. Apa yang biasanya menyebabkan anak kurang terlibat?
+4. Bagaimana cara guru mendorong anak agar lebih aktif?
+5. Apakah terdapat perbedaan keterlibatan antara satu anak dengan anak lainnya? Jelaskan.
+
+**Data yang dihasilkan:** jawaban atau uraian informan mengenai pengalaman, pendapat, dan pengamatan mereka.
+
+:::
+
+## Dokumentasi
+
+Dokumentasi adalah teknik pengumpulan data dengan memanfaatkan dokumen atau arsip yang sudah tersedia.
+
+Contohnya:
+
+- daftar hadir;
+- modul ajar;
+- hasil karya anak;
+- portofolio;
+- laporan perkembangan;
+- foto kegiatan;
+- catatan sekolah.
+
+Dokumentasi sering digunakan sebagai data pendukung atau untuk triangulasi.
+
+::: {.callout}
+**Contoh:**
+
+| No. | Dokumen | Ada | Tidak Ada | Keterangan |
+|:---:|---|:---:|:---:|---|
+| 1 | Foto kegiatan bermain | $\square$ | $\square$ | |
+| 2 | Catatan guru | $\square$ | $\square$ | |
+| 3 | Rencana kegiatan | $\square$ | $\square$ | |
+| 4 | Catatan perkembangan anak | $\square$ | $\square$ | |
+| 5 | Hasil karya anak | $\square$ | $\square$ | |
+
+**Data yang dihasilkan:** informasi yang terdapat dalam dokumen yang dikumpulkan.
+:::
+
+::: {.callout-tip}
+Satu penelitian dapat menggunakan beberapa teknik. Misalnya **observasi + wawancara guru + dokumentasi hasil karya anak** untuk memperoleh gambaran yang lebih lengkap.
+:::
+
+## Membandingkan Empat Teknik
+
+| Teknik | Fokus utama | Kelebihan | Keterbatasan |
+|---|---|---|---|
+| Observasi | perilaku/aktivitas | data langsung | membutuhkan waktu |
+| Angket | persepsi, sikap, pendapat | efisien untuk banyak responden | bergantung pada respons responden |
+| Wawancara | pengalaman dan alasan | informasi mendalam | membutuhkan waktu dan keterampilan |
+| Dokumentasi | arsip/bukti | melengkapi data lain | dokumen mungkin tidak lengkap |
+
+# Memilih Teknik Pengumpulan Data
+
+Jika yang ingin diketahui adalah **perilaku yang dapat dilihat**, pertimbangkan observasi.
+
+Jika yang ingin diketahui adalah **pendapat atau persepsi banyak responden**, pertimbangkan angket.
+
+Jika yang ingin diketahui adalah **pengalaman, alasan, atau hambatan secara mendalam**, pertimbangkan wawancara.
+
+Jika informasi sudah tersedia dalam bentuk **arsip atau dokumen**, pertimbangkan dokumentasi.
+
+::: {.callout-note}
+Satu penelitian **tidak harus menggunakan satu teknik saja**. Kombinasi beberapa teknik dapat digunakan jika setiap teknik memberikan informasi yang berbeda dan saling melengkapi.
+:::
+
+## Contoh Pemilihan Teknik
+
+| Tujuan penelitian | Teknik yang sesuai | Contoh instrumen |
+|---|---|---|
+| Mengamati kemampuan kerja sama anak | Observasi | lembar observasi |
+| Mengetahui persepsi guru terhadap media digital | Angket | kuesioner Likert |
+| Mengetahui hambatan guru dalam pembelajaran | Wawancara | pedoman wawancara |
+| Mengetahui perkembangan hasil karya anak | Dokumentasi | checklist dokumen/portofolio |
+| Menilai penerapan metode bermain | Observasi + wawancara | lembar observasi + pedoman wawancara |
+
+# Mendesain Instrumen Observasi Perkembangan Anak
+
+## Menentukan tujuan
+
+Contoh:
+
+> Mengidentifikasi kemampuan sosial-emosional anak dalam bekerja sama selama kegiatan bermain balok secara berkelompok.
+
+## Menentukan indikator
+
+Indikator harus menggambarkan perilaku yang dapat diamati:
+
+1. anak menunggu giliran menggunakan alat;
+2. anak berbagi alat dengan teman;
+3. anak mengemukakan ide kepada teman;
+4. anak membantu teman;
+5. anak mengikuti aturan permainan kelompok.
+
+## Menentukan skala
+
+Untuk latihan, gunakan skala 1–4:
+
+| Skor | Keterangan |
+|---:|---|
+| 1 | Belum Berkembang |
+| 2 | Mulai Berkembang |
+| 3 | Berkembang Sesuai Harapan |
+| 4 | Berkembang Sangat Baik |
+
+::: {.callout-warning}
+Skala tersebut adalah contoh untuk latihan penyusunan instrumen. Dalam penelitian formal, kategori dan definisi skor perlu disesuaikan dengan tujuan penelitian dan pedoman penilaian yang digunakan.
+:::
+
+## Contoh lembar observasi
+
+| No. | Indikator perilaku | 1 | 2 | 3 | 4 | Catatan/bukti perilaku |
+|---:|---|:---:|:---:|:---:|:---:|---|
+| 1 | Menunggu giliran menggunakan alat | ☐ | ☐ | ☐ | ☐ | |
+| 2 | Berbagi alat dengan teman | ☐ | ☐ | ☐ | ☐ | |
+| 3 | Mengemukakan ide kepada teman | ☐ | ☐ | ☐ | ☐ | |
+| 4 | Membantu teman yang mengalami kesulitan | ☐ | ☐ | ☐ | ☐ | |
+| 5 | Mengikuti aturan permainan kelompok | ☐ | ☐ | ☐ | ☐ | |
+
+# Prinsip Instrumen Observasi yang Baik
+
+Instrumen observasi sebaiknya:
+
+- sesuai dengan tujuan penelitian;
+- berdasarkan indikator yang jelas;
+- menggunakan perilaku yang dapat diamati;
+- menggunakan bahasa sederhana;
+- menghindari pernyataan subjektif;
+- tidak menggabungkan dua perilaku berbeda dalam satu indikator;
+- menyediakan ruang untuk mencatat bukti perilaku.
+
+**Kurang baik:**
+
+> Anak aktif dan percaya diri saat bermain.
+
+**Lebih baik:**
+
+> Anak mengemukakan ide kepada teman ketika bermain.
+
+# Case Based Learning
+
+## Kasus
+
+Sebuah kelompok mahasiswa ingin melakukan penelitian:
+
+> **"Penggunaan permainan puzzle untuk mendukung perkembangan kognitif anak usia 5–6 tahun."**
+
+Kelompok harus menentukan bagaimana data akan dikumpulkan.
+
+### Tugas kelompok
+
+Diskusikan:
+
+1. Apa yang ingin diketahui?
+2. Siapa atau apa sumber datanya?
+3. Teknik pengumpulan data apa yang paling sesuai?
+4. Mengapa teknik tersebut dipilih?
+5. Instrumen apa yang akan digunakan?
+6. Data seperti apa yang akan diperoleh?
+
+### Format hasil diskusi
+
+| Komponen | Jawaban kelompok |
+|---|---|
+| Tujuan penelitian | |
+| Sumber data | |
+| Teknik pengumpulan data | |
+| Alasan pemilihan | |
+| Instrumen | |
+| Contoh data yang diperoleh | |
+
+# Latihan Mendesain Instrumen
+
+Setiap kelompok memilih satu aspek perkembangan anak:
+
+- kognitif;
+- bahasa;
+- sosial-emosional;
+- fisik-motorik;
+- seni.
+
+Kemudian:
+
+1. tentukan satu tujuan observasi;
+2. tentukan minimal 5 indikator perilaku;
+3. buat skala penilaian;
+4. buat lembar observasi;
+5. tambahkan kolom catatan/bukti perilaku.
+
+::: {.callout-important}
+**Produk kelompok:** satu instrumen observasi sederhana yang dapat digunakan untuk mengamati perkembangan anak dalam suatu aktivitas pembelajaran.
+:::
+
+# Kuis Tertulis
+
+**1.** Teknik yang paling sesuai untuk mengamati perilaku kerja sama anak secara langsung adalah ...
+
+A. Angket  
+B. Observasi  
+C. Wawancara  
+D. Dokumentasi
+
+**2.** Peneliti ingin mengetahui persepsi guru terhadap penggunaan media digital. Teknik yang paling sesuai adalah ...
+
+A. Angket  
+B. Observasi anak  
+C. Dokumentasi  
+D. Eksperimen
+
+**3.** Peneliti ingin mengetahui alasan guru mengalami kesulitan menerapkan suatu metode pembelajaran. Teknik yang paling sesuai adalah ...
+
+A. Observasi  
+B. Angket tertutup  
+C. Wawancara  
+D. Dokumentasi
+
+**4.** Yang merupakan instrumen observasi adalah ...
+
+A. Wawancara  
+B. Lembar observasi  
+C. Dokumentasi  
+D. Responden
+
+**5.** Pernyataan indikator observasi yang paling baik adalah ...
+
+A. Anak baik selama pembelajaran.  
+B. Anak memiliki kepribadian yang baik.  
+C. Anak aktif dan pintar.  
+D. Anak berbagi alat bermain dengan teman.
+
+<!-- ::: {.callout-tip} -->
+<!-- **Kunci jawaban:** 1B, 2A, 3C, 4B, 5D. -->
+<!-- ::: -->
+
+# Refleksi
+
+> Jika Anda melakukan penelitian tentang perkembangan bahasa anak, kapan Anda memilih observasi, kapan memilih wawancara, dan kapan menggunakan dokumentasi?
+
+Jelaskan alasannya.
+
+<!-- # Tugas Individu -->
+
+<!-- Buat satu instrumen observasi sederhana untuk mengamati salah satu aspek perkembangan anak. -->
+
+<!-- Instrumen minimal memuat: -->
+
+<!-- - judul/tujuan observasi; -->
+<!-- - identitas subjek; -->
+<!-- - minimal 5 indikator; -->
+<!-- - skala penilaian; -->
+<!-- - kolom catatan/bukti perilaku. -->
+
+<!-- Instrumen harus menunjukkan hubungan yang jelas antara **tujuan → indikator → perilaku yang diamati → data yang dihasilkan**. -->
+
+# Ringkasan
+
+Teknik pengumpulan data harus dipilih berdasarkan **tujuan penelitian dan jenis informasi yang dibutuhkan**.
+
+- **Observasi** → perilaku dan aktivitas yang dapat diamati.
+- **Angket** → pendapat, persepsi, sikap, atau laporan diri.
+- **Wawancara** → pengalaman, alasan, dan informasi mendalam.
+- **Dokumentasi** → arsip atau bukti yang telah tersedia.
+
+Instrumen yang baik memiliki indikator yang jelas, dapat diamati, dan sesuai dengan tujuan penelitian.

@@ -1,0 +1,738 @@
+---
+title: "Statistik Deskriptif: visualisasi dan interpretasi"
+subtitle: "Statistik Pendidikan (AUD0331)"
+lang: id
+author: Dr. Indira Puteri Kinasih
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    html-math-method: katex
+    theme: cosmo
+  
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+---
+
+\newpage
+
+# Penyajian Data dalam Tabel dan Grafik
+
+## Capaian Pembelajaran
+
+Mahasiswa mampu:
+
+- menyusun tabel distribusi frekuensi;
+- menghitung frekuensi relatif dan persentase;
+- memilih bentuk penyajian data yang sesuai;
+- membuat tabel dan grafik menggunakan Excel; dan
+- menginterpretasikan informasi yang ditampilkan dalam tabel dan grafik.
+
+## Mengapa Data Perlu Disajikan?
+
+Data mentah sering kali sulit dibaca ketika jumlah pengamatan sudah banyak.
+
+Perhatikan data berikut:
+
+```text
+65, 70, 72, 75, 75, 78, 80, 80, 82, 83,
+85, 85, 86, 88, 90, 90, 92, 93, 95, 95
+```
+
+Dari data tersebut, kita dapat melihat **beberapa nilai secara individual**.
+Namun, akan lebih sulit untuk menjawab pertanyaan berikut:
+
+- Berapa banyak anak yang memperoleh nilai 80 atau lebih?
+- Pada interval nilai berapa sebagian besar anak berada?
+- Apakah nilai cenderung rendah, sedang, atau tinggi?
+- Bagaimana komposisi jenis media yang digunakan guru?
+
+**Tabel dan grafik** membantu mengubah kumpulan angka menjadi informasi yang lebih mudah dibaca.
+
+::: {.callout-important}
+Penyajian data bukan sekadar membuat data terlihat lebih menarik.
+
+Tujuan utamanya adalah membantu pembaca menemukan pola, perbandingan, proporsi, atau distribusi dalam data.
+:::
+
+Dari Data Mentah Menjadi Informasi
+
+Secara sederhana, prosesnya dapat digambarkan sebagai berikut:
+
+```text
+Data mentah
+    ↓
+Memeriksa dan merapikan data
+    ↓
+Mengelompokkan / meringkas data
+    ↓
+Tabel
+    ↓
+Grafik
+    ↓
+Interpretasi
+```
+
+Dengan demikian, membuat grafik sebaiknya tidak dimulai dengan pertanyaan:
+
+>"Grafik apa yang bisa saya buat?"
+
+Tetapi dengan pertanyaan:
+
+>"Informasi apa yang ingin saya lihat atau sampaikan?"
+
+## Tabel Distribusi Frekuensi
+
+Tabel distribusi frekuensi menunjukkan banyaknya pengamatan yang berada pada setiap kategori atau interval.
+
+Contoh:
+
+Misalkan terdapat nilai asesmen dari 20 anak:
+
+```text
+65, 70, 72, 75, 75, 78, 80, 80, 82, 83,
+85, 85, 86, 88, 90, 90, 92, 93, 95, 95
+```
+
+Data tersebut dapat dikelompokkan menjadi beberapa interval.
+
+
+| Interval nilai | Frekuensi |
+|---|---:|
+| 60–69 | 1 |
+| 70–79 | 5 |
+| 80–89 | 8 |
+| 90–99 | 6 |
+| **Total** | **20** |
+
+**Frekuensi** adalah banyaknya pengamatan yang masuk ke dalam kategori atau interval tertentu.
+
+Dari tabel tersebut terlihat bahwa interval 80–89 memiliki frekuensi terbesar, yaitu 8 anak.
+
+### Frekuensi Relatif
+
+Selain jumlah pengamatan, kita dapat melihat proporsi setiap kelompok terhadap keseluruhan data.
+
+$$ f_r = \frac{f}{n} $$
+
+dengan:
+
+$f_r$ = frekuensi relatif;
+$f$ = frekuensi kelompok;
+$n$ = jumlah seluruh pengamatan.
+
+Frekuensi relatif dapat dinyatakan dalam bentuk persentase:
+
+$$ \text{Persentase} = \frac{f}{n}\times100\% $$
+
+Contoh untuk interval 80–89:
+
+$$ \frac{8}{20}\times100\%=40\% $$
+
+Sehingga tabel dapat diperluas menjadi:
+
+| Interval nilai | Frekuensi | Persentase |
+| -------------- | --------: | ---------: |
+| 60–69          |         1 |         5% |
+| 70–79          |         5 |        25% |
+| 80–89          |         8 |        40% |
+| 90–99          |         6 |        30% |
+| **Total**      |    **20** |   **100%** |
+
+Dengan demikian, kita tidak hanya mengetahui berapa banyak anak pada setiap interval, tetapi juga berapa bagian dari keseluruhan.
+
+### Frekuensi Kumulatif
+
+Frekuensi dapat dijumlahkan secara bertahap untuk memperoleh frekuensi kumulatif.
+
+| Interval nilai | Frekuensi | Frekuensi kumulatif |
+| -------------- | --------: | ------------------: |
+| 60–69          |         1 |                   1 |
+| 70–79          |         5 |                   6 |
+| 80–89          |         8 |                  14 |
+| 90–99          |         6 |                  20 |
+
+Frekuensi kumulatif membantu menjawab pertanyaan seperti:
+
+> "Berapa banyak anak yang memperoleh nilai kurang dari 90?"
+
+Dari tabel tersebut, terdapat 14 anak dengan nilai kurang dari 90.
+
+::: {.callout-note}
+Tidak semua tabel distribusi frekuensi harus memiliki frekuensi relatif atau kumulatif.
+
+Kolom yang digunakan bergantung pada informasi yang ingin diperoleh dari data.
+:::
+
+### Menentukan Interval
+
+Untuk data numerik dengan banyak nilai yang berbeda, data dapat dikelompokkan ke dalam beberapa interval.
+
+Salah satu langkah sederhananya adalah:
+
+- Tentukan nilai minimum dan maksimum.
+- Tentukan banyaknya kelompok yang diinginkan.
+- Tentukan lebar interval.
+- Kelompokkan setiap nilai ke dalam interval yang sesuai.
+- Hitung frekuensi setiap interval.
+
+Secara sederhana, lebar interval dapat diperkirakan dengan:
+
+$$ \text{Lebar interval} \approx \frac{\text{nilai maksimum}-\text{nilai minimum}} {\text{jumlah interval}} $$
+
+::: {.callout-note}
+Penentuan jumlah dan lebar interval tidak selalu menggunakan satu aturan yang sama.
+
+Pilihan interval perlu mempertimbangkan ukuran data, rentang nilai, dan tujuan penyajian.
+:::
+
+# Penyajian Data dalam Grafik
+
+Tabel membantu kita membaca angka secara lebih rinci.
+Grafik membantu kita melihat pola secara visual.
+Namun, jenis grafik harus disesuaikan dengan karakteristik data dan pertanyaan yang ingin dijawab.
+
+
+## Diagram Batang (*Bar chart*)
+
+Diagram batang cocok untuk data kategorik atau diskrit dan digunakan terutama untuk membandingkan kategori.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(educationR)
+library(ggplot2)
+library(dplyr)
+
+Achieve_tbl_df |>
+  count(gender) |>
+  ggplot(aes(x = gender, y = n)) +
+  geom_col(width = 0.65) +
+  geom_text(
+    aes(label = n),
+    vjust = -0.4,
+    size = 4
+  ) +
+  labs(
+    title = "Jumlah Siswa Berdasarkan Gender",
+    x = NULL,
+    y = "Jumlah Siswa"
+  ) +
+  expand_limits(y = max(Achieve_tbl_df |> count(gender) |> pull(n)) * 1.15) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold")
+  )
+```
+
+
+Diagram batang cocok karena fokusnya adalah membandingkan kategori.
+
+::: {.callout-example}
+
+Perhatikan
+
+Pada diagram batang, setiap batang mewakili kategori yang berbeda.
+
+Karena kategorinya terpisah, batang biasanya tidak perlu berdempetan.
+:::
+
+## Diagram Garis
+
+Line chart digunakan untuk menunjukkan perubahan suatu nilai sepanjang urutan tertentu, terutama waktu. Titik-titik pada grafik menunjukkan nilai pada setiap periode, sedangkan garis yang menghubungkannya membantu memperlihatkan arah dan pola perubahan.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+data <- data.frame(
+  minggu = 1:8,
+  hadir = c(28, 30, 29, 31, 27, 30, 32, 31)
+)
+
+ggplot(data, aes(x = minggu, y = hadir)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 3) +
+  scale_x_continuous(breaks = 1:8) +
+  labs(
+    title = "Kehadiran Siswa Selama 8 Minggu",
+    x = "Minggu",
+    y = "Jumlah Siswa"
+  ) +
+  theme_minimal()
+```
+
+
+## Diagram Lingkaran
+
+Diagram lingkaran menunjukkan proporsi bagian terhadap keseluruhan.
+Cocok ketika fokus analisis adalah komposisi.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(educationR)
+library(ggplot2)
+library(dplyr)
+library(tibble)
+
+ucb <- UCBAdmissions_table %>%
+  as.data.frame() %>%
+  group_by(Admit) %>%
+  summarise(Freq = sum(Freq)) %>%
+  mutate(
+    Percent = Freq / sum(Freq) * 100,
+    Label = paste0(round(Percent, 1), "%")
+  )
+
+ggplot(ucb, aes(x = "", y = Freq, fill = Admit)) +
+  geom_col(width = 1) +
+  coord_polar(theta = "y") +
+  geom_text(
+    aes(label = Label),
+    position = position_stack(vjust = 0.5),
+    size = 5
+  ) +
+  labs(
+    title = "Proporsi Mahasiswa Diterima dan Ditolak",
+    fill = "Status penerimaan"
+  ) +
+  theme_void()
+```
+
+
+## Histogram
+
+Histogram digunakan untuk menunjukkan distribusi data numerik yang dikelompokkan dalam interval, misalnya nilai asesmen, tinggi badan, berat badan, atau waktu penyelesaian tugas.
+
+| Diagram batang | Histogram |
+|---|---|
+| Umumnya untuk kategori | Untuk data numerik berinterval |
+| Batang terpisah | Batang berdempetan |
+| Fokus pada perbandingan kategori | Fokus pada distribusi |
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(exams_tbl_df, aes(x = scores)) +
+  geom_histogram(
+    binwidth = 5,
+    boundary = 0,
+    color = "white"
+  ) +
+  geom_vline(
+    aes(xintercept = mean(scores)),
+    linetype = "dashed",
+    linewidth = 0.8
+  ) +
+  labs(
+    title = "Distribusi Nilai Ujian",
+    subtitle = "Garis putus-putus menunjukkan nilai rata-rata",
+    x = "Nilai Ujian",
+    y = "Frekuensi"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold")
+  )
+```
+
+## *Boxplot*
+
+Boxplot digunakan untuk melihat sebaran dan posisi suatu data numerik. Grafik ini merangkum data melalui beberapa bagian penting: median, kuartil pertama (Q1), kuartil ketiga (Q3), serta nilai yang relatif jauh dari sebagian besar data (outlier).
+
+Boxplot membantu kita melihat:
+
+- median → nilai tengah data;
+- Q1 dan Q3 → batas 50% data bagian tengah;
+- IQR (Interquartile Range) → lebar sebaran 50% data tengah;
+- whisker → rentang data di luar kotak;
+- outlier → pengamatan yang relatif jauh dari pola utama data.
+
+Dalam konteks pendidikan, boxplot dapat digunakan untuk membandingkan distribusi nilai beberapa kelompok, misalnya nilai mahasiswa berdasarkan kelas atau kelompok belajar.
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(Achieve_tbl_df, aes(x = gender, y = score)) +
+  geom_boxplot() +
+  labs(
+    title = "Distribusi Skor Matematika Berdasarkan Gender",
+    x = "Gender",
+    y = "Skor Matematika"
+  ) +
+  theme_minimal()
+```
+
+
+> Cara membaca: perhatikan posisi median, panjang kotak, panjang whisker, dan keberadaan outlier. Boxplot tidak hanya menunjukkan nilai tipikal, tetapi juga memberikan gambaran mengenai variasi dan ketimpangan distribusi data.
+
+## *Scatter plot*
+
+Scatter plot digunakan untuk melihat hubungan atau pola keterkaitan antara dua variabel numerik. Setiap titik merepresentasikan satu observasi, dengan posisi titik ditentukan oleh nilai variabel pada sumbu-x dan sumbu-y.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(Books_tbl_df, aes(x = book, y = spelling)) +
+  geom_point() +
+  labs(
+    title = "Jumlah Buku yang Dibaca dan Skor Spelling",
+    x = "Jumlah Buku yang Dibaca",
+    y = "Skor Spelling"
+  ) +
+  theme_minimal()
+```
+
+## *Heatmap*
+
+*Heatmap* menyajikan nilai dalam bentuk matriks dan menggunakan intensitas warna untuk menunjukkan besar-kecilnya nilai. Dalam analisis korelasi, setiap sel menunjukkan koefisien korelasi antara dua variabel. Nilai yang mendekati 1 menunjukkan hubungan positif yang kuat, nilai yang mendekati −1 menunjukkan hubungan negatif yang kuat, sedangkan nilai yang mendekati 0 menunjukkan hubungan linear yang lemah.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(educationR)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(tibble)
+
+# Matriks korelasi
+cor_data <- gifted_tbl_df |>
+  select(score, fatheriq, motheriq, speak, count) |>
+  cor(use = "complete.obs") |>
+  as.data.frame() |>
+  rownames_to_column("Variable") |>
+  pivot_longer(
+    -Variable,
+    names_to = "Variable2",
+    values_to = "Correlation"
+  )
+
+# Heatmap korelasi
+ggplot(
+  cor_data,
+  aes(
+    x = Variable,
+    y = Variable2,
+    fill = Correlation
+  )
+) +
+  geom_tile(color = "white") +
+  geom_text(
+    aes(label = round(Correlation, 2)),
+    size = 3
+  ) +
+  scale_fill_gradient2(
+    limits = c(-1, 1),
+    midpoint = 0
+  ) +
+  labs(
+    title = "Contoh representasi heatmap",
+    subtitle = "Korelasi antar variabel",
+    x = NULL,
+    y = NULL,
+    fill = "Korelasi"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid = element_blank(),
+    plot.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    aspect.ratio = 0.7
+  )
+```
+
+
+## Memilih Bentuk Penyajian
+
+| Kondisi data | Bentuk penyajian |
+|---|---|
+| Membandingkan kategori | Diagram batang |
+| Menunjukkan proporsi | Diagram lingkaran |
+| Menunjukkan distribusi data numerik | Histogram |
+| Menampilkan angka secara rinci | Tabel |
+
+
+
+
+
+
+
+## Praktikum Excel
+
+1. Masukkan data ke Excel.
+2. Periksa kelengkapan dan konsistensi data.
+3. Susun data dari kecil ke besar.
+4. Buat tabel distribusi frekuensi.
+5. Buat diagram batang dan histogram.
+6. Buat diagram lingkaran jika terdapat variabel kategorik.
+7. Beri judul dan label sumbu.
+8. Tuliskan interpretasi.
+
+::: {.callout-important}
+Grafik bukan sekadar hiasan. Setiap grafik harus membantu pembaca memahami informasi tertentu dari data.
+:::
+
+## Tugas Individu
+
+Gunakan dataset pendidikan yang diberikan dosen. Buat tabel distribusi frekuensi, satu diagram batang, satu histogram, dan diagram lingkaran jika terdapat variabel kategorik. Tambahkan 2–3 kalimat interpretasi untuk setiap penyajian.
+
+#  Ukuran Pemusatan Data
+
+## Capaian Pembelajaran
+
+Mahasiswa mampu menghitung mean, median, dan modus serta menginterpretasikannya dalam konteks data pendidikan.
+
+## Apa Itu Ukuran Pemusatan?
+
+Ukuran pemusatan memberikan gambaran tentang nilai yang mewakili pusat suatu kumpulan data. Tiga ukuran utama adalah mean, median, dan modus.
+
+## Mean
+
+Mean atau rata-rata aritmetika dihitung dengan menjumlahkan seluruh nilai dan membaginya dengan banyaknya data.
+
+$$
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
+$$
+
+Contoh:
+
+$$
+70,75,80,85,90
+$$
+
+$$
+\bar{x}=\frac{70+75+80+85+90}{5}=80
+$$
+
+## Median
+
+Median adalah nilai tengah setelah data diurutkan.
+
+Untuk data ganjil:
+
+$$
+65,70,75,80,90
+$$
+
+Median = **75**.
+
+Untuk data genap:
+
+$$
+65,70,75,80
+$$
+
+$$
+\text{Median}=\frac{70+75}{2}=72,5
+$$
+
+## Modus
+
+Modus adalah nilai yang paling sering muncul.
+
+Contoh: `70, 75, 75, 80, 85` → modus = **75**.
+
+Data dapat tidak memiliki modus, memiliki satu modus, atau memiliki lebih dari satu modus.
+
+## Membandingkan Mean, Median, dan Modus
+
+| Ukuran | Makna | Contoh penggunaan |
+|---|---|---|
+| Mean | Rata-rata seluruh nilai | Data numerik tanpa pencilan ekstrem |
+| Median | Nilai tengah | Data numerik dengan pencilan/distribusi menceng |
+| Modus | Nilai yang paling sering muncul | Data kategorik maupun numerik |
+
+## Contoh Data Pendidikan
+
+Nilai asesmen: `60, 70, 75, 80, 95`.
+
+Mean = 76, median = 75, dan tidak ada modus karena tidak ada nilai yang berulang.
+
+::: {.callout-note}
+Mean, median, dan modus dapat memberikan informasi yang berbeda. Karena itu, satu ukuran belum tentu cukup untuk menggambarkan data.
+:::
+
+## Praktikum Excel
+
+```text
+=AVERAGE(B2:B21)
+=MEDIAN(B2:B21)
+=MODE.SNGL(B2:B21)
+```
+
+Jika tidak ada nilai yang berulang, `MODE.SNGL` dapat menghasilkan error karena data tidak memiliki modus.
+
+## Diskusi
+
+Bandingkan:
+
+**Kelompok A:** `70, 72, 74, 76, 78`  
+**Kelompok B:** `50, 70, 74, 76, 100`
+
+Diskusikan apakah mean dan median memberikan gambaran yang sama dan apa pengaruh nilai ekstrem.
+
+## Kuis
+
+1. Hitung mean dari `70, 75, 80, 85, 90`.
+2. Tentukan median dari `65, 70, 72, 80, 85`.
+3. Tentukan modus dari `70, 75, 75, 80, 85`.
+4. Jelaskan perbedaan mean dan median.
+5. Mengapa median dapat digunakan ketika terdapat nilai ekstrem?
+
+# Ukuran Penyebaran Data
+
+## Capaian Pembelajaran
+
+Mahasiswa mampu menghitung range, varians, dan simpangan baku serta menginterpretasikan variasi perkembangan peserta didik.
+
+## Mengapa Mengukur Penyebaran?
+
+Dua kelompok dapat memiliki rata-rata yang sama tetapi tingkat variasi yang berbeda.
+
+**Kelompok A:** `78, 79, 80, 81, 82`  
+**Kelompok B:** `60, 70, 80, 90, 100`
+
+Keduanya memiliki mean 80, tetapi penyebaran datanya berbeda. Karena itu, ukuran pemusatan saja belum cukup.
+
+## Range
+
+Range adalah selisih nilai maksimum dan minimum.
+
+$$
+R=X_{\max}-X_{\min}
+$$
+
+Untuk `70, 75, 80, 85, 90`:
+
+$$
+R=90-70=20
+$$
+
+## Varians
+
+Varians mengukur rata-rata kuadrat penyimpangan data dari mean.
+
+Untuk populasi:
+
+$$
+\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}
+$$
+
+Untuk sampel:
+
+$$
+s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
+$$
+
+## Simpangan Baku
+
+Simpangan baku adalah akar kuadrat dari varians.
+
+Untuk populasi:
+
+$$
+\sigma=\sqrt{\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}}
+$$
+
+Untuk sampel:
+
+$$
+s=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}}
+$$
+
+## Contoh Perhitungan
+
+Data: `70, 75, 80, 85, 90`, dengan mean 80.
+
+| Nilai | $x-\bar{x}$ |$(x-\bar{x})^2$ |
+|---:|---:|---:|
+| 70 | -10 | 100 |
+| 75 | -5 | 25 |
+| 80 | 0 | 0 |
+| 85 | 5 | 25 |
+| 90 | 10 | 100 |
+| **Jumlah** | | **250** |
+
+Jika dianggap sebagai populasi:
+
+$$
+\sigma^2=\frac{250}{5}=50
+$$
+
+$$
+\sigma=\sqrt{50}\approx7,07
+$$
+
+Jika dianggap sebagai sampel:
+
+$$
+s^2=\frac{250}{4}=62,5
+$$
+
+$$
+s=\sqrt{62,5}\approx7,91
+$$
+
+## Interpretasi
+
+Simpangan baku yang lebih besar menunjukkan data lebih menyebar dari pusatnya. Simpangan baku yang lebih kecil menunjukkan data lebih terkonsentrasi di sekitar pusatnya.
+
+::: {.callout-important}
+Variasi yang lebih kecil atau lebih besar tidak otomatis berarti kondisi pendidikan lebih baik atau lebih buruk. Simpangan baku hanya menggambarkan penyebaran data.
+:::
+
+## Praktikum Excel
+
+Untuk data pada B2:B21:
+
+```text
+=MAX(B2:B21)-MIN(B2:B21)
+=VAR.S(B2:B21)
+=STDEV.S(B2:B21)
+```
+
+Jika seluruh data diperlakukan sebagai populasi:
+
+```text
+=VAR.P(B2:B21)
+=STDEV.P(B2:B21)
+```
+
+::: {.callout-warning}
+`VAR.S` dan `STDEV.S` digunakan untuk sampel, sedangkan `VAR.P` dan `STDEV.P` digunakan untuk populasi. Pemilihan fungsi harus mengikuti konteks penelitian.
+:::
+
+## Membandingkan Dua Kelompok
+
+| Kelompok | Mean | Simpangan baku |
+|---|---:|---:|
+| A | 80 | 3,2 |
+| B | 80 | 12,5 |
+
+Mean kedua kelompok sama, tetapi penyebaran datanya berbeda. Kelompok dengan simpangan baku lebih besar memiliki nilai yang lebih bervariasi.
+
+
+# Latihan
+
+Gunakan data:
+
+`65, 70, 70, 75, 80, 80, 80, 85, 90, 95`
+
+Lakukan:
+
+1. Buat tabel distribusi frekuensi.
+2. Buat diagram batang.
+3. Buat histogram.
+4. Hitung mean.
+5. Hitung median.
+6. Tentukan modus.
+7. Hitung range.
+8. Hitung varians.
+9. Hitung simpangan baku.
+10. Tuliskan interpretasi singkat.
+
+## Tugas 
+
+Gunakan dataset hasil asesmen anak yang diberikan dosen. Buat laporan analisis deskriptif sederhana yang memuat tabel data, tabel distribusi frekuensi, grafik yang sesuai, mean, median, modus, range, varians, simpangan baku, dan interpretasi hasil.
+
+Pengolahan dilakukan menggunakan **Excel**.
+
+::: {.callout-important}
+Fokus tugas bukan hanya memperoleh angka, tetapi mampu menjelaskan **apa arti angka dan grafik tersebut dalam konteks data pendidikan**.
+:::

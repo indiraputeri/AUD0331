@@ -1,0 +1,1203 @@
+---
+title: "Z-score, Korelasi, dan Regresi"
+subtitle: "Statistik Pendidikan (AUD0331)"
+author:
+  - name: Indira Puteri Kinasih
+    orcid: 0009-0009-6959-6723
+    email: indiraputeri@uinmataram.ac.id
+    affiliations: Universitas Islam Negeri Mataram
+format:
+  ubd-revealjs:
+    output-file: index.html
+    self-contained: true
+    chalkboard: false
+    toc: false
+    toc-depth: 1
+    transition: fade
+    auto-stretch: false
+    width: 1250  # 1050
+    height: 760  # 700
+execute:
+  echo: false
+---
+
+
+## Tujuan Pembelajaran
+
+Setelah mengikuti pembelajaran, mahasiswa mampu:
+
+- menjelaskan makna **z-score** dan menghitungnya;
+- menginterpretasikan posisi relatif suatu nilai;
+- membaca hubungan antara dua variabel melalui **crosstab** dan **scatterplot**;
+- menjelaskan makna **korelasi Pearson**;
+- memahami ide dasar **regresi linear**;
+- menginterpretasikan persamaan garis regresi;
+- menjelaskan kualitas model regresi secara sederhana;
+- memahami bahwa **korelasi tidak selalu berarti sebab-akibat**.
+
+
+# Bagian 1
+
+## Z-score {.scrollable}
+
+### Mengapa kita membutuhkan z-score?
+
+Kita sudah mempelajari:
+
+- ukuran pemusatan → *di mana pusat data?*
+- ukuran penyebaran → *seberapa bervariasi data?*
+
+Pertanyaan berikutnya:
+
+> **Bagaimana mengetahui posisi suatu nilai dibandingkan dengan kelompoknya?**
+
+Contoh:
+
+- Anak A mendapat skor 80.
+- Anak B mendapat skor 80.
+
+Apakah posisi kedua anak tersebut sama?
+
+**Belum tentu.**
+
+Jika mereka berasal dari kelompok dengan rata-rata dan penyebaran yang berbeda, maka posisi relatif mereka juga dapat berbeda.
+
+
+## Konsep Z-score {.scrollable}
+
+Z-score menunjukkan:
+
+> **berapa standar deviasi suatu nilai berada di atas atau di bawah rata-rata.**
+
+Untuk populasi:
+
+$$
+z=\frac{x-\mu}{\sigma}
+$$
+
+Untuk data sampel:
+
+$$
+z=\frac{x-\bar{x}}{s}
+$$
+
+Keterangan:
+
+| Simbol | Makna |
+|---|---|
+| $x$ | nilai yang diamati |
+| $\mu$ | rata-rata populasi |
+| $\sigma$ | standar deviasi populasi |
+| $\bar{x}$ | rata-rata sampel |
+| $s$ | standar deviasi sampel |
+| $z$ | skor baku |
+
+## Cara Membaca Z-score
+
+| Z-score | Interpretasi |
+|---:|---|
+| $z=0$ | tepat pada rata-rata |
+| $z>0$ | di atas rata-rata |
+| $z<0$ | di bawah rata-rata |
+| $z=1$ | 1 SD di atas rata-rata |
+| $z=-1$ | 1 SD di bawah rata-rata |
+| $z=2$ | 2 SD di atas rata-rata |
+| $z=-2$ | 2 SD di bawah rata-rata |
+
+Yang penting bukan hanya menghitung.
+
+> **Z-score harus dibaca dalam konteks data.**
+
+
+## Contoh 1: Skor Kemampuan Bahasa {.scrollable}
+
+Misalkan skor kemampuan bahasa anak:
+
+$$
+\bar{x}=70,\qquad s=10
+$$
+
+Seorang anak memperoleh skor:
+
+$$
+x=85
+$$
+
+Maka:
+
+$$
+z=\frac{85-70}{10}=1.5
+$$
+
+### Interpretasi {.scrollable}
+
+Skor anak tersebut berada:
+
+> **1,5 standar deviasi di atas rata-rata kelompok.**
+
+Bukan berarti anak tersebut memperoleh "nilai 1,5".
+
+
+## Contoh 2 {.scrollable}
+
+Rata-rata skor adalah 70 dan standar deviasi 10.
+
+Seorang anak memperoleh skor 55.
+
+$$
+z=\frac{55-70}{10}=-1.5
+$$
+
+Artinya:
+
+> Skor anak tersebut berada **1,5 standar deviasi di bawah rata-rata kelompok**.
+
+Perhatikan tanda negatif.
+
+**Negatif tidak berarti "nilai buruk".**
+
+Tanda negatif hanya menunjukkan posisi **di bawah rata-rata**.
+
+
+## Membandingkan 2 Anak dari 2 kelompok data berbeda {.scrollable}
+
+Dua anak memperoleh skor:
+
+- Anak A = 80
+- Anak B = 75
+
+Misalkan:
+
+| | Rata-rata | SD | Skor |
+|---|---:|---:|---:|
+| Anak A | 70 | 10 | 80 |
+| Anak B | 60 | 5 | 75 |
+
+Z-score:
+
+$$
+z_A=\frac{80-70}{10}=1
+$$
+
+$$
+z_B=\frac{75-60}{5}=3
+$$
+
+### Pertanyaan {.scrollable}
+
+Siapa yang memiliki posisi relatif lebih tinggi?
+
+**Anak B.**
+
+Meskipun skor mentah Anak A lebih tinggi, posisi relatif Anak B jauh lebih tinggi dibandingkan kelompoknya.
+
+
+## Z-score sebagai Skor Baku {.scrollable}
+
+Z-score memungkinkan kita:
+
+- membandingkan nilai dari kelompok yang berbeda;
+- melihat posisi relatif seseorang;
+- mengidentifikasi nilai yang relatif jauh dari rata-rata;
+- mengubah skala yang berbeda menjadi skala yang sama.
+
+### Ide utama
+
+> **Skor mentah memberi tahu "berapa nilainya".**
+
+> **Z-score memberi tahu "di mana posisinya dalam kelompok".**
+
+
+## Latihan {.scrollable}
+
+Suatu kelas memiliki:
+
+$$
+\bar{x}=75,\qquad s=8
+$$
+
+Tiga anak memperoleh skor:
+
+| Anak | Skor |
+|---|---:|
+| A | 75 |
+| B | 83 |
+| C | 59 |
+
+Hitung z-score masing-masing.
+
+Kemudian jelaskan:
+
+1. siapa yang berada pada rata-rata?
+2. siapa yang paling jauh dari rata-rata?
+3. apa arti tanda positif dan negatif?
+
+
+# Bagian 2
+
+## Melihat Hubungan Dua Variabel {.scrollable}
+
+Selama ini kita banyak membahas **satu variabel**.
+
+Contoh:
+
+- skor kemampuan bahasa;
+- tinggi badan;
+- waktu belajar;
+- kehadiran.
+
+Sekarang kita mulai melihat **dua variabel secara bersamaan**.
+
+Contoh pertanyaan:
+
+> Apakah anak yang lebih sering hadir cenderung memperoleh skor yang lebih tinggi?
+
+atau
+
+> Apakah waktu belajar berkaitan dengan skor perkembangan anak?
+
+
+## Dua Variabel Kategorik {.scrollable}
+
+Jika kedua variabel berbentuk kategori, kita dapat menggunakan:
+
+### **Crosstab / Tabel Kontingensi**
+
+Contoh:
+
+- Aktivitas belajar: tinggi / rendah
+- Capaian: mencapai / belum mencapai
+
+| Aktivitas | Mencapai | Belum | Total |
+|---|---:|---:|---:|
+| Tinggi | 24 | 6 | 30 |
+| Rendah | 12 | 18 | 30 |
+| **Total** | **36** | **24** | **60** |
+
+
+## Bagaimana Membacanya? {.scrollable}
+
+Dari tabel:
+
+- 24 dari 30 anak dengan aktivitas tinggi mencapai target;
+- 12 dari 30 anak dengan aktivitas rendah mencapai target.
+
+Secara proporsi:
+
+$$
+\frac{24}{30}=80\%
+$$
+
+sedangkan:
+
+$$
+\frac{12}{30}=40\%
+$$
+
+### Pertanyaan
+
+Apakah terdapat pola hubungan antara aktivitas belajar dan pencapaian?
+
+**Ya, terlihat adanya perbedaan proporsi.**
+
+Tetapi...
+
+> Apakah aktivitas belajar **menyebabkan** pencapaian?
+
+**Belum dapat disimpulkan.**
+
+
+## Dua Variabel Numerik {.scrollable}
+
+Jika kedua variabel berupa angka, kita dapat menggunakan:
+
+### **Scatterplot**
+
+Misalnya:
+
+- $x$ = waktu belajar
+- $y$ = skor perkembangan
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 4.5
+
+set.seed(123)
+
+study <- data.frame(
+  StudyTime = c(2,3,3,4,4,5,5,6,6,7,7,8,9),
+  Score = c(55,58,61,62,67,65,70,73,72,78,80,82,86)
+)
+
+plot(
+  study$StudyTime,
+  study$Score,
+  pch = 19,
+  xlab = "Waktu belajar (jam)",
+  ylab = "Skor perkembangan",
+  main = "Hubungan Waktu Belajar dan Skor"
+)
+```
+
+
+## Apa yang Kita Cari dari Scatterplot? {.scrollable}
+
+Perhatikan:
+
+- arah hubungan;
+- kekuatan pola;
+- bentuk hubungan;
+- pencilan (*outlier*);
+- apakah hubungan tampak linear.
+
+### Tiga kemungkinan sederhana
+
+**Positif**
+
+> semakin besar X, Y cenderung meningkat.
+
+**Negatif**
+
+> semakin besar X, Y cenderung menurun.
+
+**Tidak jelas**
+
+> tidak tampak pola hubungan yang konsisten.
+
+
+# Bagian 3
+
+## Korelasi Pearson {.scrollable}
+
+Scatterplot membantu kita **melihat** hubungan.
+
+Korelasi Pearson membantu kita **mengukur kekuatan dan arah hubungan linear**.
+
+Koefisien korelasi Pearson dilambangkan:
+
+$$
+r
+$$
+
+Nilainya berada pada:
+
+$$
+-1\leq r\leq1
+$$
+
+
+Rumusnya adalah:
+
+$$
+r =
+\frac{
+\sum (x_i-\bar{x})(y_i-\bar{y})
+}{
+\sqrt{
+\sum (x_i-\bar{x})^2
+\sum (y_i-\bar{y})^2
+}
+}
+$$
+- dengan:
+
+$(x_i, y_i)$ = nilai pengamatan ke-$(i)$;
+
+$\bar{x}, \bar{y}$ = rata-rata masing-masing variabel.
+
+
+## Cara Membaca $r$ {.scrollable}
+
+| Nilai $r$ | Arah hubungan |
+|---:|---|
+| mendekati +1 | positif kuat |
+| mendekati 0 | hubungan linear lemah/tidak ada |
+| mendekati −1 | negatif kuat |
+
+Contoh:
+
+$$
+r=0.82
+$$
+
+→ hubungan linear positif yang kuat.
+
+$$
+r=-0.75
+$$
+
+→ hubungan linear negatif yang kuat.
+
+$$
+r=0.08
+$$
+
+→ hampir tidak ada hubungan linear.
+
+
+## Korelasi Bukan Sekadar Angka {.scrollable}
+
+Misalkan diperoleh:
+
+$$
+r=0.70
+$$
+
+Interpretasi yang tepat:
+
+> Terdapat hubungan linear positif yang cukup kuat antara kedua variabel.
+
+Interpretasi yang **tidak tepat**:
+
+> Anak yang belajar lebih lama pasti memiliki kemampuan lebih tinggi.
+
+Mengapa?
+
+Karena korelasi:
+
+- tidak menunjukkan sebab-akibat;
+- tidak menjelaskan variabel lain;
+- hanya mengukur hubungan linear.
+
+
+## Aktivitas: Tebak Korelasi {.scrollable}
+
+Perhatikan tiga situasi berikut.
+
+### A
+
+Anak dengan waktu belajar lebih tinggi cenderung memiliki skor lebih tinggi.
+
+### B
+
+Anak dengan waktu belajar lebih tinggi cenderung memiliki skor lebih rendah.
+
+### C
+
+Tidak terlihat pola yang jelas.
+
+Prediksikan:
+
+$$
+r_A \quad r_B \quad r_C
+$$
+
+Apakah masing-masing:
+
+- positif?
+- negatif?
+- mendekati nol?
+
+## Pearson's $r$ dengan Excel {.scrollable}
+
+- Misal data yang hendak dihitung korelasinya ada pada kolom A dan B, baris 2 hingga 14, maka rumus excel yang dapat digunakan adalah:
+
+`=CORREL(A2:A14,B2:B14)`
+
+atau
+
+`=PEARSON(A2:A14,B2:B14)`
+
+## Pearson's $r$ dengan R {.scrollable}
+
+Misalkan data:
+
+```{r}
+study
+```
+
+Korelasi dapat dihitung dengan:
+
+```{r, echo=TRUE}
+cor(
+  study$StudyTime,
+  study$Score
+)
+```
+
+- Atau:
+
+```{r, echo=TRUE}
+cor.test(
+  study$StudyTime,
+  study$Score
+)
+```
+
+- interpretasinya:
+
+| Informasi | Hasil | Interpretasi |
+|---|---:|---|
+| Pearson's $r$ | 0.982 | Hubungan positif sangat kuat |
+| $p$-value | < 0.001 | Hubungan signifikan secara statistik |
+| 95% CI | [0.940; 0.995] | Korelasi diperkirakan tetap positif |
+| Kesimpulan | — | Waktu belajar berkaitan dengan skor yang lebih tinggi |
+
+Untuk saat ini, fokus pada:
+
+> **arah dan kekuatan hubungan.**
+
+
+# Bagian 4
+
+## Regresi Linear {.scrollable}
+
+Korelasi menjawab:
+
+> **"Seberapa kuat hubungan X dan Y?"**
+
+Regresi memberikan pertanyaan tambahan:
+
+> **"Bagaimana kita dapat menggunakan X untuk memperkirakan Y?"**
+
+Misalnya:
+
+> Apakah skor perkembangan dapat diperkirakan berdasarkan waktu belajar?
+
+
+## Mencari Garis Regresi {.scrollable}
+
+Bentuk sederhana garis regresi:
+
+$$
+\hat{y}=b_0+b_1x
+$$
+
+Keterangan:
+
+- $\hat{y}$ = nilai Y yang diprediksi;
+- $b_0$ = intercept;
+- $b_1$ = slope;
+- $x$ = variabel prediktor.
+
+
+## Apa Arti Slope? {.scrollable}
+
+Misalkan diperoleh:
+
+$$
+\hat{y}=48+4x
+$$
+
+Artinya:
+
+> setiap peningkatan **1 jam waktu belajar** berkaitan dengan peningkatan prediksi skor sebesar **4 poin**.
+
+Perhatikan kata:
+
+### **"prediksi"**
+
+bukan:
+
+### **"pasti meningkat 4 poin"**
+
+
+## Apa Arti Intercept? {.scrollable}
+
+Pada:
+
+$$
+\hat{y}=48+4x
+$$
+
+nilai intercept adalah:
+
+$$
+b_0=48
+$$
+
+Secara matematis, ketika:
+
+$$
+x=0
+$$
+
+maka:
+
+$$
+\hat{y}=48
+$$
+
+Tetapi interpretasi substantif harus hati-hati.
+
+> Apakah waktu belajar 0 jam merupakan kondisi yang masuk akal?
+
+Jika tidak, intercept mungkin hanya diperlukan untuk membentuk garis regresi.
+
+
+## Menentukan Prediksi {.scrollable}
+
+Misalkan:
+
+$$
+\hat{y}=48+4x
+$$
+
+Jika seorang anak belajar 5 jam:
+
+$$
+\hat{y}=48+4(5)
+$$
+
+$$
+\hat{y}=68
+$$
+
+Jadi skor yang diprediksi adalah:
+
+**68**
+
+
+## Garis Regresi pada Scatterplot {.scrollable}
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 4.5
+
+model <- lm(Score ~ StudyTime, data = study)
+
+plot(
+  study$StudyTime,
+  study$Score,
+  pch = 19,
+  xlab = "Waktu belajar (jam)",
+  ylab = "Skor perkembangan",
+  main = "Garis Regresi"
+)
+
+abline(model, lwd = 2)
+```
+
+Garis tersebut merupakan garis yang:
+
+> **meminimalkan jumlah kuadrat selisih antara nilai aktual dan nilai prediksi.**
+
+
+# Bagian 5
+
+## Seberapa Baik Garis Regresi? {.scrollable}
+
+Tidak semua garis regresi memberikan prediksi yang sama baiknya.
+
+Pertanyaan berikutnya:
+
+> **Seberapa baik model menjelaskan variasi pada Y?**
+
+Salah satu ukuran yang sering digunakan adalah:
+
+$$
+R^2
+$$
+
+
+## Koefisien Determinasi {.scrollable}
+
+Misalkan:
+
+$$
+R^2=0.64
+$$
+
+Interpretasi sederhananya:
+
+> Sekitar **64% variasi pada Y dalam data dapat dijelaskan oleh model yang menggunakan X**.
+
+Sedangkan sekitar:
+
+$$
+100\%-64\%=36\%
+$$
+
+berada di luar penjelasan model tersebut.
+
+
+## Jangan Salah Menafsirkan $R^2$ {.scrollable}
+
+Jika:
+
+$$
+R^2=0.64
+$$
+
+bukan berarti:
+
+> "X menyebabkan 64% perubahan Y."
+
+Yang dapat dikatakan:
+
+> Model dengan X memiliki kemampuan menjelaskan sekitar 64% variasi Y pada data tersebut.
+
+Masih mungkin terdapat:
+
+- variabel lain;
+- kesalahan pengukuran;
+- faktor lingkungan;
+- karakteristik individu;
+- faktor keluarga;
+- faktor guru;
+- faktor sekolah.
+
+
+## Residual {.scrollable}
+
+Regresi menghasilkan:
+
+- nilai aktual;
+- nilai prediksi;
+- selisih antara keduanya.
+
+Selisih tersebut disebut:
+
+### **residual**
+
+$$
+e=y-\hat{y}
+$$
+
+Jika:
+
+- aktual = 75
+- prediksi = 70
+
+maka:
+
+$$
+e=75-70=5
+$$
+
+Model **underestimate** sebesar 5 poin.
+
+
+# Bagian 6
+
+## Korelasi ≠ Kausalitas {.scrollable}
+
+Ini adalah salah satu prinsip terpenting dalam membaca data pendidikan.
+
+Misalkan ditemukan:
+
+$$
+r=0.75
+$$
+
+antara:
+
+> waktu menggunakan media pembelajaran digital
+
+dan
+
+> skor perkembangan anak.
+
+Apakah kita boleh menyimpulkan:
+
+> "Media digital meningkatkan perkembangan anak"?
+
+**Belum tentu.**
+
+
+## Mengapa? {.scrollable}
+
+Mungkin ada variabel ketiga.
+
+Misalnya:
+
+**kondisi sosial ekonomi keluarga**
+
+dapat berkaitan dengan:
+
+- akses terhadap perangkat digital;
+- kualitas lingkungan belajar;
+- dukungan orang tua;
+- skor perkembangan anak.
+
+Sehingga hubungan yang kita lihat dapat dipengaruhi oleh faktor lain.
+
+
+## Contoh Lain {.scrollable}
+
+Misalkan ditemukan:
+
+> semakin banyak anak membawa buku ke sekolah, semakin tinggi skor literasinya.
+
+Apakah membawa buku menyebabkan kemampuan literasi meningkat?
+
+Belum tentu.
+
+Mungkin anak yang:
+
+- memiliki kebiasaan membaca;
+- mendapat dukungan orang tua;
+- memiliki akses buku di rumah;
+
+lebih mungkin membawa buku **dan** memiliki kemampuan literasi yang lebih tinggi.
+
+
+## Tiga Pertanyaan Saat Membaca Hubungan {.scrollable}
+
+Ketika menemukan hubungan antara dua variabel, tanyakan:
+
+### 1. Apa polanya?
+
+Positif, negatif, atau tidak jelas?
+
+### 2. Seberapa kuat?
+
+Apakah hubungan lemah atau kuat?
+
+### 3. Apakah hubungan itu kausal?
+
+Apakah kita memiliki desain penelitian yang memungkinkan kesimpulan sebab-akibat?
+
+
+# Bagian 7 
+
+## Studi Kasus: Data Pendidikan {.scrollable}
+
+Kita akan menggunakan contoh sederhana.
+
+Misalkan kita memiliki data:
+
+| Anak | Kehadiran (%) | Waktu Belajar | Skor |
+|---|---:|---:|---:|
+| A | 95 | 8 | 86 |
+| B | 90 | 6 | 78 |
+| C | 80 | 5 | 72 |
+| D | 75 | 3 | 65 |
+| E | 98 | 9 | 91 |
+| F | 70 | 2 | 60 |
+| G | 85 | 6 | 75 |
+| H | 92 | 7 | 82 |
+
+
+## Pertanyaan 1 — Z-score {.scrollable}
+
+Rata-rata skor:
+
+$$
+\bar{x}=76.1
+$$
+
+Misalkan:
+
+$$
+s=10.2
+$$
+
+Hitung z-score untuk anak E dengan skor 91.
+
+Kemudian interpretasikan.
+
+
+## Pertanyaan 2 — Scatterplot {.scrollable}
+
+Buat scatterplot:
+
+- X = Waktu Belajar
+- Y = Skor
+
+Kemudian jawab:
+
+1. Bagaimana arah hubungan?
+2. Apakah pola terlihat linear?
+3. Apakah terdapat pencilan?
+4. Apakah hubungan terlihat kuat?
+
+
+## Pertanyaan 3 — Pearson's $r$ {.scrollable}
+
+Hitung:
+
+$$
+r
+$$
+
+Kemudian tuliskan interpretasi dalam **satu kalimat**.
+
+Gunakan struktur:
+
+> "Terdapat hubungan linear ... antara ... dan ..."
+
+Hindari langsung menggunakan kata:
+
+> "menyebabkan".
+
+
+## Pertanyaan 4 — Regresi {.scrollable}
+
+Bangun model:
+
+$$
+Score \sim StudyTime
+$$
+
+Kemudian tentukan:
+
+- intercept;
+- slope;
+- persamaan regresi;
+- prediksi skor jika waktu belajar = 7 jam.
+
+
+## Pertanyaan 5 — Kualitas Model {.scrollable}
+
+Perhatikan:
+
+$$
+R^2
+$$
+
+Kemudian jawab:
+
+> Seberapa besar variasi skor yang dapat dijelaskan oleh waktu belajar melalui model tersebut?
+
+Lalu tuliskan:
+
+> "Model ini belum menjelaskan seluruh variasi karena ..."
+
+
+# Bagian 8
+
+## Contoh dengan R {.scrollable}
+
+Data:
+
+```{r}
+student <- data.frame(
+  ID = LETTERS[1:8],
+  Attendance = c(95,90,80,75,98,70,85,92),
+  StudyTime = c(8,6,5,3,9,2,6,7),
+  Score = c(86,78,72,65,91,60,75,82)
+)
+
+student
+```
+
+
+## Scatterplot {.scrollable}
+
+```{r}
+plot(
+  student$StudyTime,
+  student$Score,
+  pch = 19,
+  xlab = "Waktu Belajar",
+  ylab = "Skor",
+  main = "Waktu Belajar dan Skor"
+)
+```
+
+
+## Pearson's $r$ {.scrollable}
+
+```{r}
+cor(
+  student$StudyTime,
+  student$Score
+)
+```
+
+Pertanyaan:
+
+> Apakah hubungan tersebut positif atau negatif?
+
+> Apakah hubungan tersebut terlihat kuat?
+
+
+## Regresi {.scrollable}
+
+```{r}
+model <- lm(
+  Score ~ StudyTime,
+  data = student
+)
+
+summary(model)
+```
+
+Perhatikan:
+
+- `(Intercept)`
+- `StudyTime`
+- `Multiple R-squared`
+
+
+## Visualisasi Regresi {.scrollable}
+
+```{r}
+plot(
+  student$StudyTime,
+  student$Score,
+  pch = 19,
+  xlab = "Waktu Belajar",
+  ylab = "Skor",
+  main = "Regresi Linear"
+)
+
+abline(
+  model,
+  lwd = 2
+)
+```
+
+
+# Bagian 9
+
+## Bagaimana Menulis Interpretasi? {.scrollable}
+
+Hindari hanya menulis:
+
+> "r = 0.85."
+
+Itu belum merupakan interpretasi.
+
+Gunakan pola:
+
+> **Hasil menunjukkan terdapat hubungan linear positif yang kuat antara waktu belajar dan skor.**
+
+Untuk regresi:
+
+> **Setiap peningkatan satu jam waktu belajar berkaitan dengan peningkatan skor yang diprediksi sebesar ... poin.**
+
+Untuk $R^2$:
+
+> **Model menjelaskan sekitar ...% variasi skor berdasarkan waktu belajar.**
+
+
+## Kesalahan yang Perlu Dihindari {.scrollable}
+
+### ❌ "Waktu belajar menyebabkan skor meningkat."
+
+Jika penelitian hanya observasional, kesimpulan ini terlalu jauh.
+
+### ✓
+
+> "Waktu belajar memiliki hubungan positif dengan skor."
+
+
+### ❌ "Korelasi 0,80 berarti 80%."
+
+Tidak tepat.
+
+### ✓
+
+> "$r=0.80$ menunjukkan hubungan linear positif yang kuat."
+
+
+### ❌ "R² = 0,64 berarti X menjelaskan 64% penyebab Y."
+
+Tidak tepat.
+
+### ✓
+
+> "$R^2=0.64$ menunjukkan model menjelaskan sekitar 64% variasi Y."
+
+
+# Aktivitas Kelompok
+
+## Membaca Data Pendidikan {.scrollable}
+
+Dalam kelompok kecil, lakukan:
+
+### 1. Z-score
+
+Pilih satu variabel numerik.
+
+Hitung z-score untuk:
+
+- satu nilai di bawah rata-rata;
+- satu nilai di atas rata-rata.
+
+### 2. Scatterplot
+
+Pilih dua variabel numerik.
+
+Buat scatterplot dan jelaskan polanya.
+
+### 3. Korelasi
+
+Hitung Pearson's $r$.
+
+Interpretasikan arah dan kekuatannya.
+
+### 4. Regresi
+
+Bangun regresi sederhana.
+
+Tuliskan:
+
+- persamaan;
+- slope;
+- prediksi;
+- $R^2$.
+
+### 5. Kritik
+
+Jawab:
+
+> **Apa yang tidak dapat kita simpulkan dari analisis ini?**
+
+
+# Diskusi Kelas
+
+## Mana yang Lebih Penting? {.scrollable}
+
+Bayangkan dua hasil penelitian.
+
+### Penelitian A
+
+$$
+r=0.82
+$$
+
+tetapi peneliti hanya memiliki data observasional.
+
+### Penelitian B
+
+$$
+r=0.45
+$$
+
+tetapi penelitian menggunakan desain eksperimen yang baik.
+
+### Pertanyaan
+
+Mana yang lebih kuat untuk mendukung klaim:
+
+> **"X menyebabkan perubahan pada Y"?**
+
+
+# Pertanyaan Penutup
+
+Sebelum menyimpulkan suatu hubungan dari data pendidikan, tanyakan:
+
+> **Apa yang sebenarnya ditunjukkan oleh data?**
+
+dan
+
+> **Apa yang belum dapat kita simpulkan?**
+
+Statistik bukan hanya tentang memperoleh angka.
+
+**Statistik adalah tentang membuat kesimpulan yang sesuai dengan bukti.**
+
+
+# Tugas Singkat
+
+Gunakan satu dataset pendidikan.
+
+Pilih:
+
+- **1 variabel numerik** untuk analisis z-score;
+- **2 variabel numerik** untuk scatterplot, korelasi, dan regresi;
+- **2 variabel kategorik** jika tersedia untuk crosstab.
+
+Laporkan:
+
+1. satu contoh z-score dan interpretasinya;
+2. satu scatterplot;
+3. nilai Pearson's $r$ dan interpretasinya;
+4. persamaan regresi;
+5. nilai $R^2$ dan interpretasinya;
+6. **satu paragraf tentang batasan kesimpulan** yang dapat dibuat dari analisis tersebut.
