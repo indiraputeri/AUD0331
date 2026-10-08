@@ -8,7 +8,7 @@ author:
     affiliations: Universitas Islam Negeri Mataram
 format:
   ubd-revealjs:
-    output-file: index.html
+    output-file: module5.html
     self-contained: true
     chalkboard: false
     toc: false
