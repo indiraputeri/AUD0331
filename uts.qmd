@@ -1,0 +1,115 @@
+---
+title: "Evaluasi Tengah Semester"
+subtitle: "Statistika Pendidikan – AUD0331"
+author: "Dosen pengampu: Indira Puteri Kinasih, Ph.D."
+format:
+  pdf:
+    documentclass: article
+classoption:
+  - 10pt
+  - a4paper
+geometry:
+  - margin=2cm 
+---
+
+## 1. Konsep Dasar dan Pengumpulan Data (15 poin)
+
+Seorang guru PAUD ingin mengetahui hubungan antara kebiasaan membaca buku cerita di rumah dan kemampuan bahasa anak. Guru tersebut mengumpulkan informasi melalui angket kepada orang tua, observasi anak ketika bercerita, serta dokumentasi hasil penilaian perkembangan bahasa.
+
+Jawablah pertanyaan berikut.
+
+a. Jelaskan perbedaan populasi dan sampel dalam penelitian tersebut. (4 poin)
+
+b. Identifikasikan jenis data yang mungkin diperoleh dari angket, observasi, dan dokumentasi. Berikan masing-masing satu contoh. (6 poin)
+
+c. Jelaskan perbedaan skala nominal, ordinal, interval, dan rasio. Berikan satu contoh variabel pendidikan anak usia dini untuk setiap skala. (5 poin)
+
+## 2. Teknik Pengumpulan dan Penyajian Data (15 poin)
+
+Seorang mahasiswa melakukan pengamatan terhadap 20 anak untuk mengetahui aktivitas yang paling disukai ketika kegiatan bermain di kelas.
+
+Hasil pengamatan menunjukkan:
+
+| Aktivitas | Jumlah Anak |
+|---|---:|
+| Bermain balok | 6 |
+| Menggambar | 4 |
+| Bermain peran | 5 |
+| Membaca buku cerita | 3 |
+| Bermain puzzle | 2 |
+| **Total** | **20** |
+
+Jawablah pertanyaan berikut.
+
+a. Hitung persentase anak pada setiap aktivitas. (5 poin)
+
+b. Tentukan jenis diagram yang paling tepat untuk menyajikan data tersebut. Jelaskan alasan pemilihannya. (4 poin)
+
+c. Buatlah diagram yang sesuai berdasarkan data tersebut. Diagram boleh dibuat secara manual. (3 poin)
+
+d. Tuliskan dua kesimpulan yang dapat diperoleh dari data tersebut dan satu hal yang belum dapat disimpulkan hanya berdasarkan data itu. (3 poin)
+
+## 3. Ukuran Pemusatan dan Penyebaran Data (25 poin)
+
+Seorang guru mencatat skor penilaian kemampuan mengenali angka dari enam anak. Skor berada pada rentang 0–100.
+
+| Anak | Skor |
+|---|---:|
+| A | 60 |
+| B | 70 |
+| C | 70 |
+| D | 80 |
+| E | 80 |
+| F | 90 |
+
+Berdasarkan data tersebut, kerjakan hal-hal berikut.
+
+a. Hitung nilai rata-rata (*mean*), median, modus, dan *range* data tersebut. (12 poin)
+
+b. Hitung varians dan simpangan baku dengan menganggap keenam anak tersebut sebagai seluruh kelompok yang sedang dikaji. Gunakan pembagi $n$. (8 poin)
+
+c. Jelaskan secara singkat apa yang ditunjukkan oleh nilai rata-rata dan simpangan baku tersebut dalam konteks kemampuan mengenali angka. (5 poin)
+
+## 4. *Z-Score* dan Interpretasi Hasil Penilaian (15 poin)
+
+Dalam suatu kegiatan penilaian kemampuan bahasa, diperoleh rata-rata skor sebesar 70 dengan simpangan baku 10. Seorang anak memperoleh skor 85.
+
+a. Hitung z-score anak tersebut menggunakan rumus: $z=\frac{X-\bar{X}}{s}$ dengan $X$ sebagai skor anak, $\bar{X}$ sebagai rata-rata, dan $s$ sebagai simpangan baku. (5 poin)
+
+b. Interpretasikan nilai *z-score* yang diperoleh. Apakah *z-score* tersebut cukup untuk menyatakan bahwa kemampuan bahasa anak sudah berkembang sesuai usianya? Jelaskan alasan Anda. (10 poin)
+
+## 5. Scatter plot dan Korelasi (15 poin)
+
+Seorang peneliti ingin mengetahui hubungan antara durasi belajar bersama orang tua di rumah dan skor penilaian bahasa anak.
+
+Hasil analisis menggunakan R menghasilkan informasi berikut:
+
+- Koefisien korelasi Pearson: $r=0{,}80$
+- Nilai *p*: $0{,}003$
+- Taraf signifikansi: $\alpha=0{,}05$
+
+Jawablah pertanyaan berikut.
+
+a. Jelaskan fungsi diagram pencar (*scatterplot*) dalam analisis dua variabel numerik. (3 poin)
+
+b. Interpretasikan nilai koefisien korelasi $r=0{,}80$ dalam konteks penelitian tersebut. (4 poin)
+
+c. Berdasarkan nilai *p* dan taraf signifikansi yang diberikan, apa kesimpulan pengujian korelasi tersebut? Apakah hasil tersebut membuktikan bahwa durasi belajar bersama orang tua menyebabkan peningkatan kemampuan bahasa anak? Jelaskan. (8 poin)
+
+## 6. Tabel Silang dan Interpretasi Data Pendidikan (15 poin)
+
+Seorang guru ingin mengetahui apakah terdapat pola perbedaan partisipasi anak dalam kegiatan bercerita berdasarkan kebiasaan membaca buku cerita di rumah.
+
+Data dari 30 anak diringkas sebagai berikut.
+
+| Kebiasaan Membaca di Rumah | Aktif Bercerita | Belum Aktif | Total |
+|---|---:|---:|---:|
+| Rutin | 12 | 3 | 15 |
+| Tidak rutin | 6 | 9 | 15 |
+| **Total** | **18** | **12** | **30** |
+
+Jawablah pertanyaan berikut.
+
+a. Hitung persentase anak yang aktif bercerita pada kelompok yang rutin membaca dan kelompok yang tidak rutin membaca. Gunakan jumlah anak pada masing-masing kelompok sebagai penyebut. (6 poin)
+
+b. Jelaskan pola yang terlihat dari tabel silang tersebut. (9 poin)

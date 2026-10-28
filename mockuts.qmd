@@ -1,0 +1,111 @@
+---
+title: "Evaluasi Tengah Semester (Mock)"
+subtitle: "Statistika Pendidikan – AUD0331"
+author: "Dosen pengampu: Indira Puteri Kinasih, Ph.D."
+format:
+  pdf:
+    documentclass: article
+classoption:
+  - 10pt
+  - a4paper
+geometry:
+  - margin=2cm 
+---
+
+## 1. Konsep Dasar dan Pengumpulan Data (15 poin)
+
+Seorang peneliti ingin mengetahui hubungan antara frekuensi kegiatan mendongeng oleh orang tua di rumah dan kemampuan anak dalam menceritakan kembali sebuah cerita. Penelitian dilakukan pada anak-anak di beberapa lembaga PAUD. Data dikumpulkan melalui angket orang tua, observasi guru, dan catatan hasil asesmen bahasa anak.
+
+Jawablah pertanyaan berikut.
+
+a. Jelaskan populasi dan sampel yang mungkin digunakan dalam penelitian tersebut. (4 poin)
+
+b. Berikan satu contoh data yang dapat diperoleh melalui angket, observasi, dan dokumentasi hasil asesmen. Jelaskan perbedaan jenis informasi yang dihasilkan oleh ketiga teknik tersebut. (6 poin)
+
+c. Tentukan skala pengukuran yang sesuai untuk setiap variabel berikut dan jelaskan alasannya. (5 poin)
+
+    - Jenis kegiatan favorit anak (menggambar, bernyanyi, atau bermain balok).
+    - Tingkat perkembangan bahasa (BB, MB, BSH, BSB).
+    - Skor kemampuan bahasa dengan rentang 0–100.
+    - Jumlah buku cerita yang dibaca anak dalam satu minggu.
+
+## 2. Teknik Pengumpulan dan Penyajian Data (15 poin)
+
+Seorang guru mengamati jenis kegiatan yang dipilih oleh 25 anak selama waktu bermain bebas. Hasil pengamatan disajikan berikut.
+
+| Jenis Kegiatan | Jumlah Anak |
+|:---|---:|
+| Bermain balok | 8 |
+| Menggambar | 5 |
+| Bermain peran | 6 |
+| Membaca buku | 4 |
+| Bermain puzzle | 2 |
+| **Total** | **25** |
+
+Jawablah pertanyaan berikut.
+
+a. Hitung persentase anak pada setiap jenis kegiatan. (5 poin)
+
+b. Pilih jenis diagram yang sesuai untuk menyajikan data tersebut. Jelaskan alasan pemilihan Anda. (4 poin)
+
+c. Buatlah diagram berdasarkan data tersebut dengan mencantumkan judul, label kategori, dan frekuensi atau persentase. (3 poin)
+
+d. Tuliskan dua temuan berdasarkan data dan satu informasi yang masih diperlukan agar guru dapat memahami alasan anak memilih kegiatan tertentu. (3 poin)
+
+## 3. Ukuran Pemusatan dan Penyebaran Data (25 poin)
+
+Seorang guru mencatat skor kemampuan berhitung awal dari tujuh anak setelah mengikuti kegiatan belajar menggunakan benda konkret. Data skor anak adalah sebagai berikut:
+
+**50, 60, 70, 70, 80, 80, 90**
+
+a. Hitung mean, median, modus, dan *range* dari data tersebut. (12 poin)
+
+b. Hitung varians dan simpangan baku dengan menganggap ketujuh anak tersebut sebagai seluruh kelompok yang dikaji. Gunakan pembagi $n$. Gunakan rumus berikut: $\sigma^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n}$ dan $\sigma=\sqrt{\sigma^2}$
+ (8 poin)
+
+c. Dua kelompok anak dapat memiliki rata-rata skor yang sama, tetapi simpangan baku berbeda. Jelaskan makna perbedaan simpangan baku tersebut dalam konteks hasil belajar anak PAUD. (5 poin)
+
+## 4. Z-Score dan Interpretasi Hasil Penilaian (15 poin)
+
+Dalam suatu asesmen kemampuan mengenali huruf, rata-rata skor kelompok anak adalah 65 dengan simpangan baku 8. Seorang anak memperoleh skor 77.
+
+a. Hitung *z-score* anak tersebut menggunakan rumus berikut. (5 poin)
+
+$$
+z=\frac{X-\bar{X}}{s}
+$$
+
+b. Interpretasikan nilai *z-score* tersebut. Jelaskan posisi skor anak dibandingkan dengan rata-rata kelompok. (5 poin)
+
+c. Seorang guru menyatakan bahwa anak dengan *z-score* positif pasti telah mencapai perkembangan sesuai usianya. Apakah pernyataan tersebut tepat? Jelaskan alasan Anda. (5 poin)
+
+
+## 5. *Scatterplot* dan Korelasi (15 poin)
+
+Seorang peneliti ingin mengkaji hubungan antara durasi tidur malam dan skor konsentrasi anak ketika mengikuti kegiatan pembelajaran. Analisis menggunakan R menghasilkan output berikut:
+
+- Koefisien korelasi Pearson: $r=-0{,}72$
+- Nilai *p*: $0{,}012$
+- Taraf signifikansi: $\alpha=0{,}05$
+
+a. Jelaskan informasi yang dapat diperoleh dari diagram pencar (*scatterplot*) sebelum melakukan analisis korelasi. (3 poin)
+
+b. Interpretasikan nilai koefisien korelasi tersebut, termasuk arah hubungan antara kedua variabel. (4 poin)
+
+c. Berdasarkan nilai *p* dan taraf signifikansi, apa kesimpulan pengujian korelasi tersebut? Apakah hasil tersebut membuktikan bahwa durasi tidur menyebabkan perubahan konsentrasi anak? Jelaskan. (8 poin)
+
+## 6. Tabel Silang dan Interpretasi Data Pendidikan (15 poin)
+
+Seorang guru ingin mengetahui pola partisipasi anak dalam kegiatan menyanyi bersama berdasarkan kebiasaan mengikuti kegiatan bernyanyi di rumah. Hasil pengamatan terhadap 40 anak disajikan berikut.
+
+| Kebiasaan Bernyanyi di Rumah | Aktif Berpartisipasi | Kurang Aktif | Total |
+|:---|---:|---:|---:|
+| Rutin | 15 | 5 | 20 |
+| Tidak rutin | 8 | 12 | 20 |
+| **Total** | **23** | **17** | **40** |
+
+Jawablah pertanyaan berikut.
+
+a. Hitung persentase anak yang aktif berpartisipasi pada kelompok yang rutin bernyanyi di rumah dan kelompok yang tidak rutin bernyanyi di rumah. Gunakan jumlah anak pada masing-masing kelompok sebagai penyebut. (6 poin)
+
+b. Interpretasikan pola yang terlihat dari tabel silang tersebut. Bandingkan proporsi kedua kelompok, jelaskan maknanya bagi kegiatan pembelajaran PAUD, dan uraikan mengapa hasil tersebut belum cukup untuk menyimpulkan hubungan sebab-akibat. (9 poin)
