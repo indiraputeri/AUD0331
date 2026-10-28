@@ -1,0 +1,1002 @@
+---
+title: "Teori Peluang dan Distribusi Peluang"
+subtitle: "Statistik Pendidikan (AUD0331)"
+author:
+  - name: Indira Puteri Kinasih
+    orcid: 0009-0009-6959-6723
+    email: indiraputeri@uinmataram.ac.id
+    affiliations: Universitas Islam Negeri Mataram
+format:
+  ubd-revealjs:
+    output-file: module5.html
+    self-contained: true
+    chalkboard: false
+    toc: false
+    toc-depth: 1
+    transition: fade
+    auto-stretch: false
+    width: 1250  # 1050
+    height: 760  # 700
+execute:
+  echo: false
+---
+
+
+## Capaian Pembelajaran
+
+Setelah mengikuti perkuliahan, mahasiswa diharapkan mampu:
+
+- Menjelaskan konsep keacakan dan peluang dalam konteks pendidikan anak usia dini.
+- Menentukan ruang sampel dan kejadian dari suatu percobaan acak.
+- Menghitung peluang menggunakan aturan dasar peluang dan diagram pohon.
+- Memahami peluang bersyarat, independensi, dan Teorema Bayes.
+- Menjelaskan konsep variabel acak dan distribusi peluang.
+- Menghitung nilai harapan dan varians variabel acak.
+- Menggunakan distribusi binomial dan normal untuk menyelesaikan masalah sederhana dalam statistik pendidikan.
+
+## Mengapa Kita Perlu Memahami Peluang? {.scrollable}
+
+- Dalam pendidikan anak usia dini, guru sering menghadapi situasi yang mengandung ketidakpastian.
+
+- Contoh:
+
+    - Apakah seorang anak akan hadir pada kegiatan pembelajaran besok?
+    - Berapa peluang seorang anak berhasil menyelesaikan tugas motorik halus?
+    - Apakah anak yang rutin membaca buku cerita cenderung memiliki kemampuan bahasa yang lebih baik?
+    - Berapa kemungkinan terdapat tiga anak yang belum mencapai indikator perkembangan dalam satu kelompok?
+
+- Peluang membantu kita memahami ketidakpastian secara kuantitatif.
+
+**Peluang bukan alat untuk memastikan kejadian individual, tetapi alat untuk memahami kemungkinan suatu kejadian.**
+
+## Keacakan dalam Kehidupan Sehari-hari {.scrollable}
+
+- Suatu kejadian dikatakan acak apabila hasilnya tidak dapat dipastikan secara individual sebelum kejadian tersebut berlangsung.
+
+- Contoh dalam pendidikan:
+
+    - Anak yang datang terlambat pada suatu hari.
+    - Hasil undian kelompok bermain.
+    - Banyak anak yang berhasil menyelesaikan permainan edukatif.
+   - Jumlah anak yang memilih kegiatan menggambar dibandingkan membaca.
+
+- Meskipun hasil individual tidak dapat dipastikan, pola kejadian dapat dipelajari melalui peluang.
+
+## Percobaan Acak {.scrollable}
+
+- Percobaan acak adalah suatu proses yang memiliki beberapa kemungkinan hasil, tetapi hasil aktualnya belum dapat dipastikan sebelum percobaan dilakukan.
+
+- Contoh:
+
+- Seorang guru memilih satu anak secara acak dari kelompok yang terdiri atas lima anak untuk melakukan kegiatan bercerita.
+
+- Kemungkinan hasil:
+
+    - Anak A terpilih.
+    - Anak B terpilih.
+    - Anak C terpilih.
+    - Anak D terpilih.
+    - Anak E terpilih.
+
+- Pemilihan dilakukan secara acak sehingga setiap anak memiliki peluang yang sama untuk terpilih.
+
+## Ruang Sampel dan Kejadian {.scrollable}
+
+- **Ruang sampel** adalah himpunan semua hasil yang mungkin dari suatu percobaan acak.
+
+- Ruang sampel dinotasikan dengan $S$.
+
+- **Kejadian** adalah himpunan bagian dari ruang sampel.
+
+- Misalkan seorang guru mengamati jenis kegiatan yang dipilih oleh seorang anak.
+
+$$
+S = \{\text{Membaca, Menggambar, Bermain}\}
+$$
+
+- Kejadian anak memilih kegiatan membaca:
+
+$$
+A = \{\text{Membaca}\}
+$$
+
+- Karena $A$ merupakan bagian dari $S$, maka:
+
+$$
+A \subseteq S
+$$
+
+## Konsep Peluang {.scrollable}
+
+- Peluang menyatakan tingkat kemungkinan terjadinya suatu kejadian.
+
+- Untuk ruang sampel yang memiliki hasil-hasil yang sama mungkin, peluang kejadian $A$ dapat dihitung menggunakan:
+
+$$
+P(A)=\frac{n(A)}{n(S)}
+$$
+
+- Keterangan:
+
+    - $P(A)$: peluang kejadian $A$
+    - $n(A)$: banyaknya hasil yang mendukung kejadian $A$
+    - $n(S)$: banyaknya seluruh hasil dalam ruang sampel
+
+- Nilai peluang berada pada rentang:
+
+$$
+0 \leq P(A) \leq 1
+$$
+
+- Peluang 0 menunjukkan kejadian yang tidak mungkin terjadi, sedangkan peluang 1 menunjukkan kejadian yang pasti terjadi.
+
+## Contoh Menghitung Peluang {.scrollable}
+
+- Dalam suatu kelompok bermain terdapat lima anak.
+
+- Guru memilih satu anak secara acak untuk memimpin doa.
+
+- Misalkan terdapat dua anak perempuan dan tiga anak laki-laki.
+
+- Peluang terpilihnya anak perempuan adalah:
+
+$$
+P(A)=\frac{2}{5}=0.4
+$$
+
+- Dengan demikian, peluang terpilihnya anak perempuan adalah 0,4 atau 40%.
+
+- Peluang terpilihnya anak laki-laki:
+
+$$
+P(A^c)=\frac{3}{5}=0.6
+$$
+
+- Kejadian $A^c$ merupakan komplemen dari kejadian $A$.
+
+## Diagram Pohon {.scrollable}
+
+- Diagram pohon digunakan untuk menggambarkan kemungkinan hasil dari suatu percobaan yang berlangsung dalam beberapa tahap.
+
+- Misalkan seorang guru mengamati dua anak.
+
+- Setiap anak dapat menunjukkan salah satu dari dua kondisi:
+
+    - Berhasil menyelesaikan tugas.
+    - Belum berhasil menyelesaikan tugas.
+
+- Diagram pohon membantu menggambarkan semua kemungkinan hasil pengamatan.
+
+```{mermaid}
+flowchart TD
+    A["Pengamatan Anak Pertama"] --> B["Berhasil"]
+    A --> C["Belum Berhasil"]
+    B --> D["Anak Kedua Berhasil"]
+    B --> E["Anak Kedua Belum Berhasil"]
+    C --> F["Anak Kedua Berhasil"]
+    C --> G["Anak Kedua Belum Berhasil"]
+```
+
+- Jika setiap hasil memiliki peluang yang sama, terdapat empat kemungkinan hasil:
+
+$$
+S=\{BB, BT, TB, TT\}
+$$
+
+- Keterangan:
+
+    - $B$: berhasil
+    - $T$: belum berhasil
+
+## Aturan Penjumlahan Peluang {.scrollable}
+
+- Aturan penjumlahan digunakan untuk menghitung peluang terjadinya salah satu dari dua kejadian.
+
+- Untuk dua kejadian $A$ dan $B$:
+
+$$
+P(A \cup B)=P(A)+P(B)-P(A \cap B)
+$$
+
+- Keterangan:
+
+    - $A \cup B$: kejadian $A$ atau $B$ terjadi
+    - $A \cap B$: kejadian $A$ dan $B$ terjadi
+
+- Jika kedua kejadian tidak dapat terjadi secara bersamaan, maka:
+
+$$
+P(A \cap B)=0
+$$
+
+- Sehingga:
+
+$$
+P(A \cup B)=P(A)+P(B)
+$$
+
+## Contoh Peluang Gabungan {.scrollable}
+
+- Dalam suatu kelas terdapat 20 anak.
+
+    - 8 anak memilih kegiatan menggambar.
+    - 7 anak memilih kegiatan membaca.
+    - 5 anak memilih kegiatan bermain balok.
+
+- Misalkan seorang anak dipilih secara acak.
+
+- Peluang anak memilih kegiatan menggambar atau membaca:
+
+$$
+P(A \cup B)=\frac{8}{20}+\frac{7}{20}
+$$
+
+$$
+P(A \cup B)=\frac{15}{20}=0.75
+$$
+
+- Jadi, peluang anak yang dipilih menyukai kegiatan menggambar atau membaca adalah 75%.
+
+- Pada contoh ini, setiap anak hanya memilih satu kegiatan sehingga kedua kejadian saling lepas.
+
+## Peluang Gabungan dan Tabel Kontingensi {.scrollable}
+
+- Tabel kontingensi (ingat materi sebelumnya) digunakan untuk menyajikan frekuensi dua variabel kategorik secara bersamaan.
+
+- Contoh pengamatan terhadap 40 anak:
+
+| Jenis Kegiatan | Laki-laki | Perempuan | Total |
+|---|---:|---:|---:|
+| Membaca | 8 | 12 | 20 |
+| Menggambar | 10 | 10 | 20 |
+| Total | 18 | 22 | 40 |
+
+- Dari tabel tersebut dapat dihitung:
+
+- Peluang anak yang memilih membaca:
+
+$$
+P(M)=\frac{20}{40}=0.5
+$$
+
+- Peluang anak perempuan yang memilih membaca:
+
+$$
+P(M \cap P)=\frac{12}{40}=0.3
+$$
+
+- Tabel kontingensi membantu memahami hubungan antara dua karakteristik anak.
+
+## Peluang Marginal dan Peluang Bersama {.scrollable}
+
+- **Peluang marginal** adalah peluang suatu kejadian yang diperoleh dari total baris atau kolom.
+
+- Contoh:
+
+$$
+P(P)=\frac{22}{40}=0.55
+$$
+
+- Peluang bersama atau joint probability adalah peluang dua kejadian terjadi secara bersamaan.
+
+- Contoh:
+
+$$
+P(M \cap P)=\frac{12}{40}=0.30
+$$
+
+- Artinya, peluang seorang anak yang dipilih secara acak merupakan anak perempuan dan memilih kegiatan membaca adalah 30%.
+
+## Peluang Bersyarat
+
+- Peluang bersyarat adalah peluang suatu kejadian terjadi dengan syarat kejadian lain telah diketahui terjadi.
+
+- Peluang kejadian $A$ dengan syarat $B$ dinotasikan:
+
+$$
+P(A \mid B)
+$$
+
+- Rumus peluang bersyarat:
+
+$$
+P(A \mid B)=\frac{P(A \cap B)}{P(B)}
+$$
+
+- dengan syarat:
+
+$$
+P(B)>0
+$$
+
+- Peluang bersyarat membantu menjawab pertanyaan seperti:
+
+    - > Jika seorang anak diketahui perempuan, berapa peluang anak tersebut memilih kegiatan membaca?
+
+## Contoh Peluang Bersyarat {.scrollable}
+
+- Berdasarkan tabel sebelumnya:
+
+| Jenis Kegiatan | Laki-laki | Perempuan | Total |
+|---|---:|---:|---:|
+| Membaca | 8 | 12 | 20 |
+| Menggambar | 10 | 10 | 20 |
+| Total | 18 | 22 | 40 |
+
+- Peluang anak memilih membaca jika diketahui anak tersebut perempuan:
+
+$$
+P(M \mid P)=\frac{12}{22}
+$$
+
+$$
+P(M \mid P)\approx 0.545
+$$
+
+- Jadi, sekitar 54,5% anak perempuan dalam kelompok tersebut memilih kegiatan membaca.
+
+- Perhatikan bahwa penyebutnya adalah jumlah anak perempuan, bukan jumlah seluruh anak.
+
+## Independensi Kejadian {.scrollable}
+
+- Dua kejadian dikatakan independen apabila terjadinya satu kejadian tidak memengaruhi peluang kejadian lainnya.
+
+- Kejadian $A$ dan $B$ independen jika:
+
+$$
+P(A \cap B)=P(A)P(B)
+$$
+
+- Bentuk lain:
+
+$$
+P(A \mid B)=P(A)
+$$
+
+- Contoh:
+
+    - Seorang guru melakukan dua kali undian dengan pengembalian kartu setelah undian pertama.
+
+    - Jika setiap undian dilakukan dengan kondisi yang sama, hasil undian pertama tidak memengaruhi peluang hasil undian kedua.
+
+- **Catatan:** Independensi merupakan asumsi matematis yang perlu diperiksa. Dua kejadian tidak otomatis independen hanya karena keduanya terjadi pada anak yang berbeda.
+
+## Teorema Bayes {.scrollable}
+
+- Teorema Bayes digunakan untuk memperbarui peluang suatu kejadian setelah memperoleh informasi baru.
+
+- Rumus:
+
+$$
+P(A \mid B)=
+\frac{P(B \mid A)P(A)}{P(B)}
+$$
+
+- Dengan menggunakan aturan peluang total:
+
+$$
+P(B)=P(B \mid A)P(A)
+$$
+
+$$
++P(B \mid A^c)P(A^c)
+$$
+
+- Bayes membantu menjelaskan bagaimana informasi baru mengubah penilaian terhadap suatu kemungkinan.
+
+## Contoh Teorema Bayes dalam Pendidikan {.scrollable}
+
+- Misalkan:
+
+    - 20% anak memiliki kesulitan tertentu dalam menyelesaikan tugas bahasa.
+    - 80% anak tidak memiliki kesulitan tersebut.
+    - 70% anak yang mengalami kesulitan menunjukkan hasil skrining positif.
+    - 10% anak yang tidak mengalami kesulitan juga menunjukkan hasil skrining positif.
+
+- Ditanyakan:
+
+    - Jika seorang anak menunjukkan hasil skrining positif, berapa peluang anak tersebut benar-benar mengalami kesulitan?
+
+$$
+P(A)=0.20
+$$
+
+$$
+P(B \mid A)=0.70
+$$
+
+$$
+P(B \mid A^c)=0.10
+$$
+
+## Penyelesaian Teorema Bayes {.scrollable}
+
+- Hitung peluang hasil skrining positif:
+
+$$
+P(B)=0.70(0.20)+0.10(0.80)
+$$
+
+$$
+P(B)=0.14+0.08=0.22
+$$
+
+- Kemudian:
+
+$$
+P(A \mid B)=\frac{0.70(0.20)}{0.22}
+$$
+
+$$
+P(A \mid B)\approx 0.636
+$$
+
+- Jadi, peluang anak benar-benar mengalami kesulitan berdasarkan hasil skrining positif adalah sekitar 63,6%.
+
+- **Interpretasi pendidikan:** Hasil skrining merupakan informasi awal, bukan diagnosis. Penilaian perkembangan anak tetap memerlukan observasi dan asesmen yang sesuai.
+
+## Variabel Acak {.scrollable}
+
+- Variabel acak adalah fungsi yang memberikan nilai numerik pada setiap hasil dari suatu percobaan acak.
+
+- Variabel acak dinotasikan dengan $X$.
+
+- Contoh:
+
+    - Seorang guru mengamati tiga anak yang mengikuti kegiatan menyusun balok.
+
+    - Variabel acak $X$ menyatakan banyak anak yang berhasil menyelesaikan tugas.
+
+- Kemungkinan nilai:
+
+$$
+X \in \{0,1,2,3\}
+$$
+
+- Nilai $X$ merupakan hasil numerik dari suatu proses yang mengandung ketidakpastian.
+
+## Variabel Acak Diskrit dan Kontinu {.scrollable}
+
+- **Variabel acak diskrit**
+
+    Variabel acak yang memiliki nilai-nilai terpisah dan dapat dihitung.
+
+- Contoh:
+
+    - Jumlah anak yang hadir.
+    - Jumlah anak yang menyelesaikan tugas.
+    - Jumlah kesalahan dalam kegiatan menulis.
+
+- **Variabel acak kontinu**
+
+    Variabel acak yang dapat mengambil nilai pada suatu interval.
+
+- Contoh:
+
+    - Waktu yang diperlukan anak untuk menyelesaikan tugas.
+    - Tinggi badan anak.
+    - Durasi kegiatan bermain.
+
+- Perbedaan ini menentukan jenis distribusi peluang yang digunakan.
+
+
+
+## Distribusi Peluang
+
+Distribusi peluang menjelaskan kemungkinan setiap nilai dari suatu variabel acak.
+
+Untuk variabel acak diskrit:
+
+$$
+P(X=x)=p(x)
+$$
+
+Syarat distribusi peluang:
+
+$$
+p(x)\geq 0
+$$
+
+$$
+\sum_x p(x)=1
+$$
+
+Contoh:
+
+Seorang guru mengamati dua anak yang mengikuti kegiatan motorik halus.
+
+Variabel acak $X$ menyatakan jumlah anak yang berhasil.
+
+| $X$ | $P(X=x)$ |
+|---:|---:|
+| 0 | 0.25 |
+| 1 | 0.50 |
+| 2 | 0.25 |
+| Total | 1.00 |
+
+Distribusi tersebut menggambarkan peluang jumlah anak yang berhasil menyelesaikan tugas.
+
+## Distribusi Kumulatif
+
+Distribusi kumulatif menyatakan peluang bahwa suatu variabel acak memiliki nilai kurang dari atau sama dengan nilai tertentu.
+
+Fungsi distribusi kumulatif:
+
+$$
+F(x)=P(X\leq x)
+$$
+
+Berdasarkan contoh sebelumnya:
+
+$$
+P(X\leq 0)=0.25
+$$
+
+$$
+P(X\leq 1)=0.25+0.50=0.75
+$$
+
+$$
+P(X\leq 2)=1
+$$
+
+Distribusi kumulatif membantu menjawab pertanyaan:
+
+"Berapa peluang paling banyak satu anak berhasil menyelesaikan tugas?"
+
+Jawaban:
+
+$$
+P(X\leq 1)=0.75
+$$
+
+## Nilai Harapan
+
+Nilai harapan atau expected value merupakan rata-rata teoretis dari suatu variabel acak.
+
+Untuk variabel acak diskrit:
+
+$$
+E(X)=\sum_x xP(X=x)
+$$
+
+Berdasarkan distribusi sebelumnya:
+
+$$
+E(X)=0(0.25)+1(0.50)+2(0.25)
+$$
+
+$$
+E(X)=1
+$$
+
+Artinya, dalam jangka panjang, rata-rata jumlah anak yang berhasil diperkirakan sebesar satu anak dari dua anak yang diamati.
+
+Nilai harapan tidak harus merupakan nilai yang mungkin muncul pada satu percobaan.
+
+## Varians dan Simpangan Baku
+
+Varians mengukur penyebaran nilai variabel acak terhadap nilai harapannya.
+
+Rumus:
+
+$$
+Var(X)=E[(X-\mu)^2]
+$$
+
+Bentuk lain:
+
+$$
+Var(X)=E(X^2)-[E(X)]^2
+$$
+
+Simpangan baku:
+
+$$
+SD(X)=\sqrt{Var(X)}
+$$
+
+Berdasarkan distribusi sebelumnya:
+
+$$
+E(X^2)=0^2(0.25)+1^2(0.50)+2^2(0.25)
+$$
+
+$$
+E(X^2)=1.5
+$$
+
+Sehingga:
+
+$$
+Var(X)=1.5-1^2=0.5
+$$
+
+$$
+SD(X)=\sqrt{0.5}\approx 0.707
+$$
+
+## Transformasi Variabel Acak
+
+Misalkan variabel acak $X$ memiliki nilai harapan $\mu$ dan varians $\sigma^2$.
+
+Jika:
+
+$$
+Y=a+bX
+$$
+
+Maka:
+
+$$
+E(Y)=a+bE(X)
+$$
+
+$$
+Var(Y)=b^2Var(X)
+$$
+
+Contoh:
+
+Skor seorang anak pada suatu kegiatan memiliki nilai harapan 70 dan simpangan baku 5.
+
+Guru mengubah skor tersebut menjadi:
+
+$$
+Y=10+2X
+$$
+
+Nilai harapan baru:
+
+$$
+E(Y)=10+2(70)=150
+$$
+
+Varians baru:
+
+$$
+Var(Y)=2^2(25)=100
+$$
+
+Simpangan baku baru:
+
+$$
+SD(Y)=10
+$$
+
+Penambahan konstanta menggeser rata-rata, sedangkan perkalian dengan konstanta mengubah rata-rata dan skala penyebaran.
+
+## Distribusi Normal
+
+Distribusi normal merupakan distribusi peluang kontinu yang berbentuk simetris menyerupai lonceng.
+
+Karakteristik:
+
+- Simetris terhadap nilai rata-rata.
+- Mean, median, dan modus berada pada titik yang sama.
+- Sebagian besar nilai berada di sekitar rata-rata.
+- Bentuk distribusi ditentukan oleh mean dan simpangan baku.
+
+Distribusi normal dinotasikan:
+
+$$
+X\sim N(\mu,\sigma^2)
+$$
+
+Keterangan:
+
+- $\mu$: rata-rata populasi
+- $\sigma^2$: varians populasi
+- $\sigma$: simpangan baku populasi
+
+Contoh penerapan:
+
+Distribusi skor perkembangan bahasa atau waktu penyelesaian tugas dapat didekati dengan distribusi normal apabila karakteristik datanya mendukung asumsi tersebut.
+
+## Kurva Distribusi Normal
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+x <- seq(40, 100, length.out = 500)
+y <- dnorm(x, mean = 70, sd = 10)
+
+plot(
+  x, y,
+  type = "l",
+  lwd = 2,
+  xlab = "Skor perkembangan",
+  ylab = "Kepadatan peluang",
+  main = "Distribusi Normal"
+)
+
+abline(
+  v = 70,
+  lty = 2
+)
+```
+
+Kurva normal memiliki luas total sebesar 1.
+
+Luas di bawah kurva pada suatu interval menunjukkan peluang bahwa variabel acak berada pada interval tersebut.
+
+## Distribusi Normal dan Aturan Empiris
+
+Pada distribusi normal, terdapat aturan empiris:
+
+| Interval | Proporsi Data |
+|---|---:|
+| $\mu \pm 1\sigma$ | Sekitar 68% |
+| $\mu \pm 2\sigma$ | Sekitar 95% |
+| $\mu \pm 3\sigma$ | Sekitar 99,7% |
+
+Contoh:
+
+Skor perkembangan bahasa anak memiliki rata-rata 70 dan simpangan baku 10.
+
+Sekitar 68% skor diperkirakan berada pada interval:
+
+$$
+70\pm 10
+$$
+
+$$
+60\leq X\leq 80
+$$
+
+Sekitar 95% skor diperkirakan berada pada interval:
+
+$$
+50\leq X\leq 90
+$$
+
+Aturan ini berlaku sebagai pendekatan untuk distribusi yang mendekati normal.
+
+## Distribusi Normal Baku
+
+Distribusi normal baku memiliki:
+
+$$
+\mu=0
+$$
+
+$$
+\sigma=1
+$$
+
+Transformasi dari variabel normal menjadi normal baku dilakukan menggunakan skor $Z$:
+
+$$
+Z=\frac{X-\mu}{\sigma}
+$$
+
+Skor $Z$ menyatakan jarak suatu nilai dari rata-rata dalam satuan simpangan baku.
+
+Interpretasi:
+
+- $Z=0$: nilai berada tepat pada rata-rata.
+- $Z=1$: nilai berada satu simpangan baku di atas rata-rata.
+- $Z=-1$: nilai berada satu simpangan baku di bawah rata-rata.
+
+## Contoh Menghitung Skor Z
+
+Skor perkembangan bahasa anak memiliki:
+
+$$
+\mu=70,\quad \sigma=10
+$$
+
+Seorang anak memperoleh skor 85.
+
+Skor Z:
+
+$$
+Z=\frac{85-70}{10}
+$$
+
+$$
+Z=1.5
+$$
+
+Artinya, skor anak tersebut berada 1,5 simpangan baku di atas rata-rata kelompok.
+
+Skor Z membantu membandingkan posisi relatif suatu nilai terhadap distribusinya.
+
+## Menghitung Peluang dengan Distribusi Normal
+
+Misalkan:
+
+$$
+X\sim N(70,10^2)
+$$
+
+Ditanyakan peluang seorang anak memperoleh skor kurang dari 85.
+
+Transformasi menjadi skor Z:
+
+$$
+Z=\frac{85-70}{10}=1.5
+$$
+
+Sehingga:
+
+$$
+P(X<85)=P(Z<1.5)
+$$
+
+Berdasarkan distribusi normal baku:
+
+$$
+P(Z<1.5)\approx 0.9332
+$$
+
+Jadi, peluang seorang anak memperoleh skor kurang dari 85 adalah sekitar 93,32%.
+
+## Distribusi Binomial
+
+Distribusi binomial digunakan untuk menghitung peluang banyaknya keberhasilan dalam sejumlah percobaan yang memiliki dua kemungkinan hasil.
+
+Syarat distribusi binomial:
+
+- Jumlah percobaan tetap, yaitu $n$.
+- Setiap percobaan memiliki dua kemungkinan hasil.
+- Peluang keberhasilan $p$ tetap.
+- Percobaan saling independen.
+
+Distribusi binomial dinotasikan:
+
+$$
+X\sim Bin(n,p)
+$$
+
+Rumus peluang:
+
+$$
+P(X=x)=
+\binom{n}{x}p^x(1-p)^{n-x}
+$$
+
+dengan:
+
+$$
+\binom{n}{x}=\frac{n!}{x!(n-x)!}
+$$
+
+## Contoh Distribusi Binomial
+
+Seorang guru mengamati lima anak yang mengikuti kegiatan menyusun balok.
+
+Peluang setiap anak berhasil menyelesaikan tugas adalah 0,6.
+
+Misalkan:
+
+$$
+X=\text{jumlah anak yang berhasil}
+$$
+
+Dengan asumsi percobaan independen:
+
+$$
+X\sim Bin(5,0.6)
+$$
+
+Ditanyakan peluang tepat tiga anak berhasil.
+
+$$
+P(X=3)=
+\binom{5}{3}(0.6)^3(0.4)^2
+$$
+
+$$
+P(X=3)=10(0.216)(0.16)
+$$
+
+$$
+P(X=3)=0.3456
+$$
+
+Jadi, peluang tepat tiga anak berhasil menyelesaikan tugas adalah 34,56%.
+
+## Mean dan Varians Distribusi Binomial
+
+Untuk variabel acak binomial:
+
+$$
+X\sim Bin(n,p)
+$$
+
+Nilai harapan:
+
+$$
+E(X)=np
+$$
+
+Varians:
+
+$$
+Var(X)=np(1-p)
+$$
+
+Simpangan baku:
+
+$$
+SD(X)=\sqrt{np(1-p)}
+$$
+
+Pada contoh sebelumnya:
+
+$$
+E(X)=5(0.6)=3
+$$
+
+$$
+Var(X)=5(0.6)(0.4)=1.2
+$$
+
+$$
+SD(X)=\sqrt{1.2}\approx 1.095
+$$
+
+Dalam jangka panjang, rata-rata jumlah anak yang berhasil diperkirakan sebesar tiga anak dari lima anak.
+
+## Perbandingan Distribusi Binomial dan Normal
+
+| Karakteristik | Binomial | Normal |
+|---|---|---|
+| Jenis variabel | Diskrit | Kontinu |
+| Bentuk | Nilai terpisah | Kurva kontinu |
+| Parameter | $n$ dan $p$ | $\mu$ dan $\sigma$ |
+| Contoh | Jumlah anak berhasil | Skor perkembangan |
+| Penggunaan | Menghitung peluang keberhasilan | Menghitung peluang pada interval |
+
+Distribusi normal dapat digunakan sebagai pendekatan terhadap distribusi binomial apabila jumlah percobaan cukup besar dan distribusi binomial tidak terlalu menceng.
+
+Salah satu aturan praktis:
+
+$$
+np\geq 5
+$$
+
+$$
+n(1-p)\geq 5
+$$
+
+Untuk pendekatan yang lebih baik, beberapa referensi menggunakan batas yang lebih ketat.
+
+## Latihan Kontekstual
+
+Seorang guru PIAUD mengamati 10 anak yang mengikuti kegiatan motorik halus.
+
+Peluang seorang anak berhasil menyelesaikan tugas adalah 0,7.
+
+Misalkan $X$ menyatakan jumlah anak yang berhasil.
+
+Jawablah pertanyaan berikut:
+
+- Tentukan distribusi peluang yang sesuai.
+- Hitung peluang tepat 7 anak berhasil.
+- Hitung nilai harapan jumlah anak yang berhasil.
+- Hitung varians dan simpangan baku.
+- Jelaskan makna nilai harapan dalam konteks pengamatan.
+
+Gunakan rumus distribusi binomial.
+
+## Refleksi Pembelajaran
+
+Peluang membantu kita memahami ketidakpastian dalam pengamatan pendidikan.
+
+Distribusi peluang memberikan model matematis untuk menggambarkan kemungkinan nilai suatu variabel acak.
+
+Konsep-konsep tersebut menjadi dasar untuk memahami statistika inferensial, termasuk:
+
+- Estimasi parameter.
+- Pengujian hipotesis.
+- Interval kepercayaan.
+- Analisis hubungan antarvariabel.
+- Pemodelan statistik dalam penelitian pendidikan.
+
+**Pertanyaan refleksi:**
+
+Bagaimana konsep peluang dapat membantu guru PIAUD membuat keputusan yang lebih baik berdasarkan hasil pengamatan perkembangan anak?

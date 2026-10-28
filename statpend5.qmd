@@ -1007,7 +1007,7 @@ Pertanyaan:
 
 ## Regresi {.scrollable}
 
-```{r}
+```{r, echo=TRUE}
 model <- lm(
   Score ~ StudyTime,
   data = student
@@ -1025,7 +1025,7 @@ Perhatikan:
 
 ## Visualisasi Regresi {.scrollable}
 
-```{r}
+```{r, echo=TRUE}
 plot(
   student$StudyTime,
   student$Score,
@@ -1040,6 +1040,93 @@ abline(
   lwd = 2
 )
 ```
+
+
+## Studi Kasus: Faktor yang Berkaitan dengan Skor Sekolah {.scrollable}
+
+- Dataset **CASchools** memuat informasi sekolah di California.
+
+- Kita ingin mengetahui apakah rata-rata skor membaca dan matematika berkaitan dengan:
+
+    - Rasio siswa terhadap guru (*student-teacher ratio*);
+    - Persentase siswa yang memenuhi syarat makan siang bersubsidi (*lunch*);
+    - Pengeluaran per siswa (*expenditure*).
+
+### Variabel yang digunakan
+
+| Variabel | Keterangan |
+|---|---|
+| `score` | Rata-rata skor membaca dan matematika |
+| `STRatio` | Jumlah siswa per guru |
+| `lunch` | Persentase siswa yang memenuhi syarat makan siang bersubsidi |
+| `expenditure` | Pengeluaran per siswa |
+
+## Model regresi {.scrollable}
+
+$$
+\text{Score} = \beta_0 + \beta_1\text{STRatio}
++ \beta_2\text{Lunch} + \beta_3\text{Expenditure} + \varepsilon
+$$
+
+**Pertanyaan analisis:**
+
+> Apakah rasio siswa-guru, persentase siswa penerima subsidi makan siang, dan pengeluaran per siswa berkaitan dengan skor sekolah?
+
+
+## Menyiapkan Data di jamovi {.scrollable}
+
+1. Buka dataset
+
+    - Buka Jamovi.
+    - Pilih **Open → This PC → Browse**.
+    - Pilih file `CASchools_jamovi.csv`.
+
+2. Periksa tipe variabel. Pastikan seluruh variabel berikut memiliki tipe pengukuran **Continuous**:
+
+    - `score`
+    - `STRatio`
+    - `lunch`
+    - `expenditure`
+
+3. Jika variabel belum tersedia, pilih **Data → Compute** untuk membuat variabel baru.
+
+| Nama variabel | Formula |
+|---|---|
+| `STRatio` | `students / teachers` |
+| `score` | `(read + math) / 2` |
+
+    Periksa kembali data sebelum analisis.
+
+
+## Regresi Linear Berganda dengan jamovi
+
+### Langkah analisis
+
+1. Pilih **Analyses → Regression → Linear Regression**.
+2. Masukkan `score` ke kotak **Dependent Variable**.
+3. Masukkan `STRatio`, `lunch`, dan `expenditure` ke kotak **Covariates**.
+4. Pada bagian **Model Fit**, tampilkan:
+   - $R^2$
+   - Adjusted $R^2$
+5. Pada bagian **Model Coefficients**, tampilkan:
+   - Estimate
+   - Standard Error
+   - $t$
+   - $p$
+
+### Membaca hasil
+
+| Output | Pertanyaan |
+|---|---|
+| $R^2$ | Berapa proporsi variasi skor yang dijelaskan model? |
+| Koefisien regresi | Bagaimana perubahan skor ketika prediktor meningkat satu satuan, dengan prediktor lain tetap? |
+| $p$-value | Apakah terdapat bukti statistik bahwa koefisien berbeda dari nol? |
+
+**Contoh interpretasi koefisien:**
+
+Jika koefisien `STRatio` bernilai negatif, maka rasio siswa terhadap guru yang lebih tinggi berkaitan dengan skor yang lebih rendah, dengan `lunch` dan `expenditure` dianggap tetap.
+
+> Interpretasi koefisien regresi berganda selalu mempertimbangkan variabel prediktor lainnya. Hasil ini menunjukkan hubungan statistik, bukan otomatis hubungan sebab-akibat.
 
 
 # Bagian 9
@@ -1183,7 +1270,7 @@ Statistik bukan hanya tentang memperoleh angka.
 **Statistik adalah tentang membuat kesimpulan yang sesuai dengan bukti.**
 
 
-# Tugas Singkat
+# Tugas Singkat {.scrollable}
 
 Gunakan satu dataset pendidikan.
 
