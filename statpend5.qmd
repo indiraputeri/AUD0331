@@ -957,164 +957,229 @@ Lalu tuliskan:
 > "Model ini belum menjelaskan seluruh variasi karena ..."
 
 
-# Bagian 8
+# Bagian 8: Contoh Regresi dengan R dan jamovi
 
-## Contoh dengan R {.scrollable}
+## Mengenal Dataset CASchools {.scrollable}
 
-Data:
+- Dataset **CASchools** memuat informasi tentang kinerja tes, karakteristik sekolah, dan latar belakang demografis siswa di California, Amerika Serikat.
 
-```{r}
-student <- data.frame(
-  ID = LETTERS[1:8],
-  Attendance = c(95,90,80,75,98,70,85,92),
-  StudyTime = c(8,6,5,3,9,2,6,7),
-  Score = c(86,78,72,65,91,60,75,82)
-)
+    - Jumlah observasi: 420 distrik sekolah
+    - Periode data: 1998–1999
+    - Jenjang: K–6 dan K–8
+    - Sumber: California Department of Education
+    - Referensi: Stock dan Watson, *Introduction to Econometrics*
 
-student
-```
+- Dataset ini tersedia dalam paket R `AER` dan dapat diunduh dalam format CSV.
 
+**Sumber data:**
 
-## Scatterplot {.scrollable}
+- [Dokumentasi CASchools pada paket AER](https://www.rdocumentation.org/packages/AER/versions/1.2-16/topics/CASchools)
+- [Unduh dataset CASchools dalam format CSV](https://vincentarelbundock.github.io/Rdatasets/csv/AER/CASchools.csv)
 
-```{r}
-plot(
-  student$StudyTime,
-  student$Score,
-  pch = 19,
-  xlab = "Waktu Belajar",
-  ylab = "Skor",
-  main = "Waktu Belajar dan Skor"
-)
-```
+- Dataset ini merupakan data observasional. Analisis regresi digunakan untuk mempelajari hubungan antarvariabel, bukan untuk langsung menyimpulkan hubungan sebab-akibat.
 
 
-## Pearson's $r$ {.scrollable}
+## Menyiapkan Data {.scrollable}
+
+- Dataset CASchools dapat diakses melalui paket `AER`.
 
 ```{r}
-cor(
-  student$StudyTime,
-  student$Score
-)
+#| echo: true
+
+# Instalasi dilakukan satu kali
+# install.packages("AER")
+
+# Memuat paket
+library(AER)
+
+# Memanggil dataset
+data("CASchools")
+
+# Membuat variabel analisis
+CASchools$STRatio <- CASchools$students / CASchools$teachers
+
+CASchools$score <- (CASchools$read + CASchools$math) / 2
+
+# Memilih variabel yang digunakan
+CASchools <- CASchools[
+  , c("score", "STRatio", "lunch", "expenditure")
+]
+
+head(CASchools)
 ```
-
-Pertanyaan:
-
-> Apakah hubungan tersebut positif atau negatif?
-
-> Apakah hubungan tersebut terlihat kuat?
-
-
-## Regresi {.scrollable}
-
-```{r, echo=TRUE}
-model <- lm(
-  Score ~ StudyTime,
-  data = student
-)
-
-summary(model)
-```
-
-Perhatikan:
-
-- `(Intercept)`
-- `StudyTime`
-- `Multiple R-squared`
-
-
-## Visualisasi Regresi {.scrollable}
-
-```{r, echo=TRUE}
-plot(
-  student$StudyTime,
-  student$Score,
-  pch = 19,
-  xlab = "Waktu Belajar",
-  ylab = "Skor",
-  main = "Regresi Linear"
-)
-
-abline(
-  model,
-  lwd = 2
-)
-```
-
-
-## Studi Kasus: Faktor yang Berkaitan dengan Skor Sekolah {.scrollable}
-
-- Dataset **CASchools** memuat informasi sekolah di California.
-
-- Kita ingin mengetahui apakah rata-rata skor membaca dan matematika berkaitan dengan:
-
-    - Rasio siswa terhadap guru (*student-teacher ratio*);
-    - Persentase siswa yang memenuhi syarat makan siang bersubsidi (*lunch*);
-    - Pengeluaran per siswa (*expenditure*).
 
 ### Variabel yang digunakan
 
 | Variabel | Keterangan |
 |---|---|
 | `score` | Rata-rata skor membaca dan matematika |
-| `STRatio` | Jumlah siswa per guru |
+| `STRatio` | Rasio jumlah siswa terhadap jumlah guru |
 | `lunch` | Persentase siswa yang memenuhi syarat makan siang bersubsidi |
 | `expenditure` | Pengeluaran per siswa |
 
-## Model regresi {.scrollable}
+### Menyimpan data untuk jamovi
+
+```{r}
+#| echo: true
+
+write.csv(
+  CASchools,
+  "CASchools_jamovi.csv",
+  row.names = FALSE
+)
+```
+
+File `CASchools_jamovi.csv` dapat dibuka langsung di jamovi.
+
+
+## Scatterplot {.scrollable}
+
+Sebelum melakukan regresi, kita dapat melihat hubungan antara dua variabel melalui scatterplot.
+
+Misalnya, hubungan antara rasio siswa-guru dan skor sekolah.
+
+```{r}
+#| echo: true
+
+plot(
+  CASchools$STRatio,
+  CASchools$score,
+  pch = 19,
+  xlab = "Rasio Siswa-Guru",
+  ylab = "Rata-rata Skor",
+  main = "Rasio Siswa-Guru dan Skor Sekolah"
+)
+```
+
+**Pertanyaan:**
+
+- Bagaimana arah hubungan yang terlihat?
+- Apakah hubungan tersebut tampak linear?
+- Apakah terdapat titik yang menyimpang dari pola umum?
+
+
+## Pearson's $r$ {.scrollable}
+
+Korelasi Pearson digunakan untuk mengukur arah dan kekuatan hubungan linear antara dua variabel numerik.
+
+```{r}
+#| echo: true
+
+cor(
+  CASchools$STRatio,
+  CASchools$score
+)
+```
+
+Untuk memperoleh pengujian statistik:
+
+```{r}
+#| echo: true
+
+cor.test(
+  CASchools$STRatio,
+  CASchools$score
+)
+```
+
+**Interpretasi:**
+
+- $r>0$: hubungan positif.
+- $r<0$: hubungan negatif.
+- $r$ mendekati 0: hubungan linear lemah.
+- $|r|$ mendekati 1: hubungan linear kuat.
+
+> Korelasi tidak menunjukkan bahwa satu variabel menyebabkan perubahan pada variabel lainnya.
+
+
+## Regresi Linear Berganda {.scrollable}
+
+Kita ingin mengetahui apakah rasio siswa-guru, persentase siswa penerima subsidi makan siang, dan pengeluaran per siswa berkaitan dengan skor sekolah.
+
+Model regresi:
 
 $$
-\text{Score} = \beta_0 + \beta_1\text{STRatio}
-+ \beta_2\text{Lunch} + \beta_3\text{Expenditure} + \varepsilon
+\text{Score}_i =
+\beta_0 +
+\beta_1\text{STRatio}_i +
+\beta_2\text{Lunch}_i +
+\beta_3\text{Expenditure}_i +
+\varepsilon_i
 $$
+
+### Menjalankan regresi di R
+
+```{r}
+#| echo: true
+
+model <- lm(
+  score ~ STRatio + lunch + expenditure,
+  data = CASchools
+)
+
+summary(model)
+```
+
+### Membaca output/luaran regresi
+
+Perhatikan bagian berikut:
+
+| Output | Makna |
+|---|-------|
+| `(Intercept)` | Nilai prediksi skor ketika seluruh prediktor bernilai nol. Interpretasi substantifnya terbatas karena kondisi tersebut tidak realistis. |
+| `STRatio` | Dengan `lunch` dan `expenditure` tetap, kenaikan satu satuan rasio siswa-guru berkaitan dengan penurunan skor sekitar 0.399 poin. Namun, hubungan ini tidak signifikan secara statistik. |
+| `lunch` | Dengan prediktor lain tetap, kenaikan satu poin persentase lunch berkaitan dengan penurunan skor sekitar 0.602 poin. Hubungan ini signifikan secara statistik. |
+| `expenditure` | Dengan prediktor lain tetap, kenaikan satu satuan pengeluaran per siswa berkaitan dengan kenaikan skor sekitar 0.003439 poin. Hubungan ini signifikan secara statistik. |
+| `Multiple R-squared` | setelah memperhitungkan jumlah prediktor dalam model, proporsi variasi yang dijelaskan adalah sekitar 77.33% |
+| `Pr(>|t|)` | Nilai $p$ untuk pengujian koefisien regresi |
 
 **Pertanyaan analisis:**
 
-> Apakah rasio siswa-guru, persentase siswa penerima subsidi makan siang, dan pengeluaran per siswa berkaitan dengan skor sekolah?
+1. Variabel mana yang memiliki hubungan signifikan secara statistik dengan skor?
+2. Bagaimana arah hubungan masing-masing prediktor?
+3. Berapa proporsi variasi skor yang dijelaskan oleh model?
+4. Apakah hasil ini cukup untuk menyatakan bahwa prediktor menyebabkan perubahan skor?
 
 
-## Menyiapkan Data di jamovi {.scrollable}
+## Regresi Linear Berganda dengan jamovi {.scrollable}
 
-1. Buka dataset
+### 1. Membuka dataset
 
-    - Buka Jamovi.
-    - Pilih **Open → This PC → Browse**.
-    - Pilih file `CASchools_jamovi.csv`.
+- Buka jamovi.
+- Pilih **Open → This PC → Browse**.
+- Pilih file `CASchools_jamovi.csv`.
 
-2. Periksa tipe variabel. Pastikan seluruh variabel berikut memiliki tipe pengukuran **Continuous**:
+Pastikan variabel berikut memiliki tipe pengukuran **Continuous**:
 
-    - `score`
-    - `STRatio`
-    - `lunch`
-    - `expenditure`
+- `score`
+- `STRatio`
+- `lunch`
+- `expenditure`
 
-3. Jika variabel belum tersedia, pilih **Data → Compute** untuk membuat variabel baru.
+### 2. Menjalankan regresi
 
-| Nama variabel | Formula |
-|---|---|
-| `STRatio` | `students / teachers` |
-| `score` | `(read + math) / 2` |
+Pilih:
 
-    Periksa kembali data sebelum analisis.
+**Analyses → Regression → Linear Regression**
 
+Kemudian:
 
-## Regresi Linear Berganda dengan jamovi
+- Masukkan `score` ke **Dependent Variable**.
+- Masukkan `STRatio`, `lunch`, dan `expenditure` ke **Covariates**.
 
-### Langkah analisis
+Pada bagian **Model Fit**, tampilkan:
 
-1. Pilih **Analyses → Regression → Linear Regression**.
-2. Masukkan `score` ke kotak **Dependent Variable**.
-3. Masukkan `STRatio`, `lunch`, dan `expenditure` ke kotak **Covariates**.
-4. Pada bagian **Model Fit**, tampilkan:
-   - $R^2$
-   - Adjusted $R^2$
-5. Pada bagian **Model Coefficients**, tampilkan:
-   - Estimate
-   - Standard Error
-   - $t$
-   - $p$
+- $R^2$
+- Adjusted $R^2$
 
-### Membaca hasil
+Pada bagian **Model Coefficients**, tampilkan:
+
+- Estimate
+- Standard Error
+- $t$
+- $p$
+
+### 3. Membaca hasil
 
 | Output | Pertanyaan |
 |---|---|
@@ -1122,11 +1187,9 @@ $$
 | Koefisien regresi | Bagaimana perubahan skor ketika prediktor meningkat satu satuan, dengan prediktor lain tetap? |
 | $p$-value | Apakah terdapat bukti statistik bahwa koefisien berbeda dari nol? |
 
-**Contoh interpretasi koefisien:**
+**Bandingkan hasil R dan jamovi.**
 
-Jika koefisien `STRatio` bernilai negatif, maka rasio siswa terhadap guru yang lebih tinggi berkaitan dengan skor yang lebih rendah, dengan `lunch` dan `expenditure` dianggap tetap.
-
-> Interpretasi koefisien regresi berganda selalu mempertimbangkan variabel prediktor lainnya. Hasil ini menunjukkan hubungan statistik, bukan otomatis hubungan sebab-akibat.
+Apakah koefisien regresi, $R^2$, dan nilai $p$ yang diperoleh dari kedua perangkat lunak sama?
 
 
 # Bagian 9
